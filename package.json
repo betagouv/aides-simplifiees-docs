@@ -1,0 +1,24 @@
+{
+  "name": "aides-simplifiees-docs",
+  "version": "1.0.0",
+  "description": "Documentation méthodologique pour la modélisation et la simulation des aides publiques en France",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@datagouv/vitepress-plugin-matomo": "^1.0.5",
+    "@gouvfr/dsfr": "^1.14.2",
+    "vitepress": "^1.6.3"
+  },
+  "devDependencies": {
+    "mermaid": "^11.8.1",
+    "vitepress-plugin-mermaid": "^2.0.17"
+  }
+}

@@ -1,0 +1,232 @@
+/**
+ * Variables DSFR essentielles - Extraites du Système de Design de l'État Français
+ * Source: @gouvfr/dsfr v1.14.2
+ * 
+ * Ce fichier contient uniquement:
+ * - Les polices Marianne
+ * - Les variables de couleur DSFR nécessaires
+ * Sans aucun style de composant DSFR
+ */
+
+/* ===== Polices Marianne ===== */
+@font-face {
+  font-family: "Marianne";
+  src: url("@gouvfr/dsfr/dist/fonts/Marianne-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Marianne";
+  src: url("@gouvfr/dsfr/dist/fonts/Marianne-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Marianne";
+  src: url("@gouvfr/dsfr/dist/fonts/Marianne-Regular_Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Marianne";
+  src: url("@gouvfr/dsfr/dist/fonts/Marianne-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Marianne";
+  src: url("@gouvfr/dsfr/dist/fonts/Marianne-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== Variables de couleur DSFR ===== */
+:root {
+  /* Gris / Neutral colors */
+  --grey-50: #161616;
+  --grey-75: #1e1e1e;
+  --grey-100: #242424;
+  --grey-125: #2a2a2a;
+  --grey-150: #2f2f2f;
+  --grey-175: #353535;
+  --grey-200: #3a3a3a;
+  --grey-425: #666;
+  --grey-625: #929292;
+  --grey-850: #cecece;
+  --grey-900: #ddd;
+  --grey-925: #e5e5e5;
+  --grey-950: #eee;
+  --grey-975: #f6f6f6;
+  --grey-1000: #fff;
+  
+  /* Bleu France / French Blue - Primary color */
+  --blue-france-75: #1b1b35;
+  --blue-france-100: #21213f;
+  --blue-france-125: #272747;
+  --blue-france-200: #313178;
+  --blue-france-625: #8585f6;
+  --blue-france-850: #cacafb;
+  --blue-france-925: #e3e3fd;
+  --blue-france-950: #ececfe;
+  --blue-france-975: #f5f5fe;
+  --blue-france-sun-113: #000091;
+  --blue-france-main-525: #6a6af4;
+  
+  /* Hover and active states for Bleu France */
+  --blue-france-sun-113-625: #000091;
+  --blue-france-sun-113-625-hover: #1212ff;
+  --blue-france-sun-113-625-active: #2323ff;
+  
+  --blue-france-925-125: #e3e3fd;
+  --blue-france-950-100: #ececfe;
+  
+  /* Rouge Marianne / Marianne Red - Secondary color */
+  --red-marianne-75: #2b1919;
+  --red-marianne-100: #331f1f;
+  --red-marianne-125: #3b2424;
+  --red-marianne-200: #5e2a2b;
+  --red-marianne-425: #c9191e;
+  --red-marianne-625: #f95c5e;
+  --red-marianne-850: #fcbfbf;
+  --red-marianne-925: #fddede;
+  --red-marianne-950: #fee9e9;
+  --red-marianne-975: #fef4f4;
+  --red-marianne-main-472: #e1000f;
+  
+  /* Info - System color */
+  --info-425: #0063cb;
+  --info-625: #518fff;
+  --info-850: #bccdff;
+  --info-925: #dde5ff;
+  --info-950: #e8edff;
+  --info-975: #f4f6ff;
+  --info-main-525: #0078f3;
+  
+  /* Success - System color */
+  --success-425: #18753c;
+  --success-625: #27a658;
+  --success-850: #3bea7e;
+  --success-925: #88fdaa;
+  --success-950: #b8fec9;
+  --success-975: #dffee6;
+  --success-main-525: #1f8d49;
+  
+  /* Warning - System color */
+  --warning-425: #b34000;
+  --warning-625: #fc5d00;
+  --warning-850: #ffbeb4;
+  --warning-925: #ffded9;
+  --warning-950: #ffe9e6;
+  --warning-975: #fff4f3;
+  --warning-main-525: #d64d00;
+  
+  /* Error - System color */
+  --error-425: #ce0500;
+  --error-625: #ff5655;
+  --error-850: #ffbdbd;
+  --error-925: #fdd;
+  --error-950: #ffe9e9;
+  --error-975: #fff4f4;
+  --error-main-525: #f60700;
+}
+
+/* ===== Thème sombre / Dark theme ===== */
+.dark {
+  /* En mode sombre, les couleurs DSFR s'inversent selon les conventions */
+  
+  /* Gris inversés pour le mode sombre */
+  --grey-50: #f6f6f6;
+  --grey-75: #e5e5e5;
+  --grey-100: #eee;
+  --grey-125: #ddd;
+  --grey-150: #cecece;
+  --grey-175: #929292;
+  --grey-200: #cecece;
+  --grey-425: #929292;
+  --grey-625: #666;
+  --grey-850: #3a3a3a;
+  --grey-900: #353535;
+  --grey-925: #2f2f2f;
+  --grey-950: #2a2a2a;
+  --grey-975: #242424;
+  --grey-1000: #161616;
+  
+  /* Bleu France ajusté pour le mode sombre */
+  --blue-france-75: #f5f5fe;
+  --blue-france-100: #ececfe;
+  --blue-france-125: #e3e3fd;
+  --blue-france-200: #cacafb;
+  --blue-france-625: #313178;
+  --blue-france-850: #272747;
+  --blue-france-925: #21213f;
+  --blue-france-950: #1b1b35;
+  --blue-france-975: #1b1b35;
+  --blue-france-sun-113: #8585f6;
+  --blue-france-main-525: #6a6af4;
+  
+  /* Versions hover/active ajustées */
+  --blue-france-sun-113-625: #8585f6;
+  --blue-france-sun-113-625-hover: #b1b1f9;
+  --blue-france-sun-113-625-active: #c6c6fb;
+  
+  --blue-france-925-125: #21213f;
+  --blue-france-950-100: #1b1b35;
+  
+  /* Rouge Marianne ajusté pour le mode sombre */
+  --red-marianne-75: #fef4f4;
+  --red-marianne-100: #fee9e9;
+  --red-marianne-125: #fddede;
+  --red-marianne-200: #fcbfbf;
+  --red-marianne-425: #f95c5e;
+  --red-marianne-625: #c9191e;
+  --red-marianne-850: #5e2a2b;
+  --red-marianne-925: #3b2424;
+  --red-marianne-950: #331f1f;
+  --red-marianne-975: #2b1919;
+  --red-marianne-main-472: #f95c5e;
+  
+  /* Info pour mode sombre */
+  --info-425: #518fff;
+  --info-625: #0063cb;
+  --info-850: #273961;
+  --info-925: #222a3f;
+  --info-950: #1d2437;
+  --info-975: #171d2e;
+  --info-main-525: #6196ff;
+  
+  /* Success pour mode sombre */
+  --success-425: #27a658;
+  --success-625: #18753c;
+  --success-850: #204129;
+  --success-925: #1e2e22;
+  --success-950: #19271d;
+  --success-975: #142117;
+  --success-main-525: #2ec166;
+  
+  /* Warning pour mode sombre */
+  --warning-425: #fc5d00;
+  --warning-625: #b34000;
+  --warning-850: #5d2c20;
+  --warning-925: #3e231e;
+  --warning-950: #361e19;
+  --warning-975: #2d1814;
+  --warning-main-525: #ff754e;
+  
+  /* Error pour mode sombre */
+  --error-425: #ff5655;
+  --error-625: #ce0500;
+  --error-850: #642626;
+  --error-925: #412121;
+  --error-950: #391c1c;
+  --error-975: #301717;
+  --error-main-525: #ff3634;
+}

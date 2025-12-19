@@ -1,0 +1,121 @@
+/**
+ * Customisation VitePress avec les couleurs du Système de Design de l'État Français (DSFR)
+ * Documentation: https://www.systeme-de-design.gouv.fr/
+ * 
+ * Cette feuille de style utilise les variables CSS du DSFR (importées via core.main.min.css)
+ * pour personnaliser VitePress tout en conservant sa structure et ses composants.
+ */
+
+:root {
+  /* Typographie officielle DSFR - Marianne */
+  --vp-font-family-base: "Marianne", arial, sans-serif;
+  --vp-font-family-mono: "Courier New", monospace;
+  
+  /* ===== Application des couleurs DSFR à VitePress ===== */
+  
+  /* Couleurs de marque principales - Utilise les variables DSFR */
+  --vp-c-brand-1: var(--blue-france-sun-113);
+  --vp-c-brand-2: var(--blue-france-main-525);
+  --vp-c-brand-3: var(--blue-france-sun-113-625);
+  --vp-c-brand-soft: var(--blue-france-950);
+  
+  /* Couleurs de fond */
+  --vp-c-bg: var(--grey-1000);
+  --vp-c-bg-soft: var(--grey-975);
+  --vp-c-bg-mute: var(--grey-950);
+  --vp-c-bg-alt: var(--grey-925);
+  
+  /* Couleurs de texte */
+  --vp-c-text-1: var(--grey-50);
+  --vp-c-text-2: var(--grey-200);
+  --vp-c-text-3: var(--grey-425);
+  
+  /* Bordures */
+  --vp-c-border: var(--grey-925);
+  --vp-c-divider: var(--grey-950);
+  --vp-c-gutter: var(--grey-975);
+  
+  /* Couleurs d'accent pour les liens */
+  --vp-c-default-1: var(--grey-425);
+  --vp-c-default-2: var(--grey-625);
+  --vp-c-default-3: var(--grey-200);
+  --vp-c-default-soft: var(--grey-950);
+  
+  /* Hero section - Page d'accueil avec gradient DSFR */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, var(--blue-france-sun-113) 30%, var(--red-marianne-main-472));
+  
+  /* Boutons */
+  --vp-button-brand-border: var(--blue-france-sun-113);
+  --vp-button-brand-text: var(--grey-1000);
+  --vp-button-brand-bg: var(--blue-france-sun-113);
+  --vp-button-brand-hover-border: var(--blue-france-main-525);
+  --vp-button-brand-hover-text: var(--grey-1000);
+  --vp-button-brand-hover-bg: var(--blue-france-main-525);
+  --vp-button-brand-active-border: var(--blue-france-sun-113-625);
+  --vp-button-brand-active-text: var(--grey-1000);
+  --vp-button-brand-active-bg: var(--blue-france-sun-113-625);
+  
+  /* Badges */
+  --vp-badge-tip-border: transparent;
+  --vp-badge-tip-text: var(--blue-france-sun-113);
+  --vp-badge-tip-bg: var(--blue-france-950);
+  
+  /* Navigation active */
+  --vp-c-bg-elv: var(--grey-975);
+  --vp-c-bg-elv-up: var(--grey-950);
+  
+  /* Code blocks */
+  --vp-code-bg: var(--grey-975);
+}
+
+/* ===== Thème sombre (Dark mode) ===== */
+.dark {
+  /* Les variables DSFR changent automatiquement en mode sombre */
+  /* On garde juste les overrides VitePress */
+  
+  /* Couleurs de marque pour thème sombre */
+  --vp-c-brand-1: var(--blue-france-sun-113-625);
+  --vp-c-brand-2: var(--blue-france-sun-113);
+  --vp-c-brand-3: var(--blue-france-main-525);
+  --vp-c-brand-soft: var(--blue-france-925-125);
+  
+  /* Couleurs de fond pour thème sombre */
+  --vp-c-bg: #1b1b1f;
+  --vp-c-bg-soft: #242427;
+  --vp-c-bg-mute: #2c2c32;
+  --vp-c-bg-alt: #34343a;
+  
+  /* Couleurs de texte pour thème sombre */
+  --vp-c-text-1: rgba(255, 255, 255, 0.87);
+  --vp-c-text-2: rgba(235, 235, 235, 0.6);
+  --vp-c-text-3: rgba(235, 235, 235, 0.38);
+  
+  /* Bordures pour thème sombre */
+  --vp-c-border: #3c3c43;
+  --vp-c-divider: #2e2e32;
+  --vp-c-gutter: #000000;
+  
+  /* Hero section en thème sombre */
+  --vp-home-hero-name-background: linear-gradient(120deg, var(--blue-france-sun-113-625) 30%, var(--red-marianne-main-472));
+  
+  /* Boutons en thème sombre */
+  --vp-button-brand-border: var(--blue-france-sun-113-625);
+  --vp-button-brand-text: var(--grey-50);
+  --vp-button-brand-bg: var(--blue-france-sun-113-625);
+  --vp-button-brand-hover-border: var(--blue-france-sun-113);
+  --vp-button-brand-hover-text: var(--grey-50);
+  --vp-button-brand-hover-bg: var(--blue-france-sun-113);
+  --vp-button-brand-active-border: var(--blue-france-main-525);
+  --vp-button-brand-active-text: var(--grey-50);
+  --vp-button-brand-active-bg: var(--blue-france-main-525);
+  
+  /* Badges en thème sombre */
+  --vp-badge-tip-border: transparent;
+  --vp-badge-tip-text: var(--blue-france-sun-113-625);
+  --vp-badge-tip-bg: var(--blue-france-925-125);
+  
+  /* Code blocks en thème sombre */
+  --vp-code-bg: var(--grey-925);
+  --vp-code-block-bg: var(--grey-975);
+}
