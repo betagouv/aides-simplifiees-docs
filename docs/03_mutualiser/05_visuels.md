@@ -150,50 +150,6 @@ flowchart TD
     click V2 href "#" "Voir le barème"
 ```
 
-## 4. Maintenir et Tracer (Phase de run)
-
-### La chaîne de traçabilité (Le jumeau réglementaire)
-
-Pour garantir l'auditabilité, il faut représenter la chaîne complète de la donnée, du texte de loi jusqu'à l'écran de l'usager.
-
-```mermaid
-flowchart TD
-    subgraph A["Texte juridique"]
-        A1[Loi / Décret]
-    end
-    
-    subgraph B["Modèle calculable"]
-        B1[Règles & Barèmes]
-    end
-    
-    subgraph C["Preuves"]
-        C1[Cas types validés]
-        C2[Tests automatisés]
-    end
-    
-    subgraph F["Gouvernance"]
-        F1[Registre d'interprétations]
-    end
-    
-    A1 -->|Interprétation| B1
-    C1 -.->|Valide| B1
-    F1 -.->|Justifie| B1
-```
-
-### Traçabilité fine : du droit au test
-
-Ce schéma établit la correspondance précise pour les revues de conformité.
-
-```mermaid
-flowchart TD
-    T1["Art. L.821-1"] -.->|implémente| R1["aah . eligibilite"]
-    T2["Art. D.821-1"] -.->|implémente| R2["aah . plafond"]
-    
-    R1 -.->|testé par| C1["cas-aah-01.yaml"]
-    R2 -.->|testé par| C1
-```
-
-
 ## Inspiration : La "Living Documentation"
 
 Une pratique classique est de maintenir ces diagrammes manuellement (Figma, PowerPoint). Cela présente des avantages en flexibilité, mais ils risquent de devenir obsolètes dès la première modification du code.
