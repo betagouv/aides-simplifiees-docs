@@ -78,19 +78,17 @@ Les **Pays-Bas** développent depuis 2018 une approche systémique via le [TNO](
 
 En France, le mouvement s'accélère. En mars 2025, la DINUM a organisé [**Rules as Code Europe**](https://www.numerique.gouv.fr/actualites/-rules-as-code-europe---retour-sur-la-premi%C3%A8re-%C3%A9dition-de-mars-2025-qui-marque-le-d%C3%A9but-dune-dynamique-europ%C3%A9enne/), première conférence européenne sur le sujet (100+ participants, 15 pays). La France y a présenté OpenFisca et Publicodes, et lancé un projet pilote européen sur les « assistants de réglementation personnalisés » avec la Grèce et les Pays-Bas.
 
-## Où se situe Aides simplifiées ?
+## Événements et conférences
 
-Aides simplifiées s'inscrit dans la continuité de Mes Aides et des simulateurs Beta.gouv : conception centrée usager, moteurs de règles open source, méthode itérative, implication des experts métier dans la modélisation.
+### Rules as Code Europe (annuel)
 
-Le projet apporte quelques éléments supplémentaires :
+Conférence européenne dédiée à la traduction de la réglementation en code exécutable.
 
-- Une documentation méthodologique formalisée, destinée à être réutilisée par d'autres équipes
-- Une approche collaborative qui intègre les partenaires (collectivités, associations, opérateurs) dès la conception
-- Des outils de modélisation pensés pour des non-développeurs
+- **2024** : Amsterdam, organisée par l'Asser Institute (Pays-Bas)
+- **2025** : Paris, co-organisée par la DINUM et beta.gouv. Première édition européenne officielle (100+ participants, 15 pays). La France y a présenté OpenFisca et Publicodes, et lancé un projet pilote européen sur les assistants de réglementation personnalisés avec la Grèce et les Pays-Bas.
+- **2026** : La Haye (10-11 mars)
 
-::: tip Pour aller plus loin
-Voir la [présentation du produit](/00_introduction/aides-simplifiees) pour le positionnement actuel, et [Rules as Code](/00_introduction/rules-as-code) pour le contexte conceptuel.
-:::
+Communauté : gouvernements, académiques, communautés open source.
 
 ## Références
 
@@ -123,4 +121,5 @@ Voir la [présentation du produit](/00_introduction/aides-simplifiees) pour le p
 
 - [OpenFisca](https://openfisca.org), moteur de calcul socio-fiscal open source
 - [Publicodes](https://publi.codes), langage de règles lisible
+- [Catala](https://catala-lang.org/), langage de programmation littéraire pour le droit (INRIA)
 - [France Connect](https://franceconnect.gouv.fr), fédération d'identité pour les services publics
