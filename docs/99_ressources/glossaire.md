@@ -173,4 +173,4 @@ Ce glossaire est évolutif. N'hésitez pas à proposer des ajouts ou corrections
 
 - [Historique des simulateurs publics](/99_ressources/historique)
 - [Guide complet des simulateurs](/02_simulateurs/)
-- [Les enjeux Rules as Code](/00_introduction/rules-as-code)
+- [La réglementation opérable](/00_introduction/reglementation-operable)

@@ -43,5 +43,5 @@ Le produit Aides Simplifiées s'est arrêté, mais ses apprentissages perdurent 
 
 ## Pour aller plus loin
 
-- [Les enjeux du Rules as Code](/00_introduction/rules-as-code) - Comprendre le cadre théorique
+- [La réglementation opérable](/00_introduction/reglementation-operable) - Le cadre théorique et l'écosystème
 - [Guide des simulateurs](/02_simulateurs/) - Passer à la pratique

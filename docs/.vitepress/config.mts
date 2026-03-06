@@ -40,7 +40,7 @@ export default defineConfig({
         text: 'Introduction',
         items: [
           { text: 'Aides simplifiées', link: '/00_introduction/aides-simplifiees' },
-          { text: 'Rules as Code', link: '/00_introduction/rules-as-code' },
+          { text: 'Réglementation opérable', link: '/00_introduction/reglementation-operable' },
           { text: 'Communauté', link: '/00_introduction/communaute' }
         ]
       },
