@@ -32,8 +32,7 @@ export default defineConfig({
     nav: [
       { text: 'Accueil', link: '/' },
       { text: 'Simulateurs', link: '/02_simulateurs/' },
-      { text: 'Mutualiser', link: '/03_mutualiser/' },
-      { text: 'Horizons', link: '/04_horizons/' }
+      { text: 'Mutualiser', link: '/03_mutualiser/' }
     ],
 
     sidebar: [
@@ -68,17 +67,6 @@ export default defineConfig({
           { text: 'Patterns architecturaux', link: '/03_mutualiser/03_patterns' },
           { text: 'Contribuer', link: '/03_mutualiser/04_contribuer' },
           { text: 'Ressources visuelles', link: '/03_mutualiser/05_visuels' }
-        ]
-      },
-      {
-        text: 'Horizons',
-        collapsed: false,
-        items: [
-          { text: 'Vue d\'ensemble', link: '/04_horizons/' },
-          { text: 'Écosystème interopérable', link: '/04_horizons/01_ecosysteme-interoperable' },
-          { text: 'Interfaces & Contribution', link: '/04_horizons/02_interfaces-contribution' },
-          { text: 'Nouveaux usages', link: '/04_horizons/03_nouveaux-usages' },
-          { text: 'Agenda de recherche', link: '/04_horizons/04_agenda-recherche' }
         ]
       },
       {

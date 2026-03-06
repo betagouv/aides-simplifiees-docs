@@ -36,4 +36,3 @@ Ces questions n'ont pas de réponse unique. Elles appellent une gouvernance coll
 ## Pour aller plus loin
 
 - [Guide des simulateurs](/02_simulateurs/) : Passer à la pratique
-- [Horizons](/04_horizons/) : Perspectives d'évolution

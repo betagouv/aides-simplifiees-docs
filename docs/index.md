@@ -24,9 +24,6 @@ Cette documentation s'adresse :
 *   [**Mutualiser**](/03_mutualiser/)
     Panorama de l'écosystème existant, catalogue des outils réutilisables et patterns de conception partagés.
 
-*   [**Horizons**](/04_horizons/)
-    Les perspectives d'évolution : écosystème interopérable, interfaces de contribution, nouveaux usages et agenda de recherche.
-
 *   [**Ressources**](/99_ressources/)
     Glossaire technique et historique des simulateurs publics.
 

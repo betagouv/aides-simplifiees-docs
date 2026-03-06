@@ -46,4 +46,3 @@ Ces chantiers sont ouverts à contribution. Si l'un vous intéresse, manifestez-
 
 - [Panorama des projets](/03_mutualiser/01_panorama) - Les simulateurs existants
 - [Contribuer à un modèle partagé](/03_mutualiser/04_contribuer) - Gouvernance et processus
-- [Horizons](/04_horizons/) - Les usages au-delà des simulateurs
