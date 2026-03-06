@@ -6,7 +6,9 @@ Les équipes qui construisent des simulateurs d'aides publiques font face aux m�
 
 En France, une vingtaine d'équipes, principalement au sein de [beta.gouv.fr](https://beta.gouv.fr) et chez ses partenaires, développent des simulateurs d'aides publiques ouverts. Ces projets couvrent des domaines variés (logement, emploi, famille, mobilité, rénovation énergétique) et utilisent des approches techniques diverses, mais les problématiques se recoupent.
 
-## Rencontre du 8 décembre 2025
+Cet écosystème français s'inscrit dans un mouvement européen plus large. La conférence [RaC Europe](https://rac-europe.eu) (Amsterdam 2024, Paris 2025, La Haye 2026) réunit chaque année praticiens et chercheurs autour de la modélisation des règles juridiques. Voir [La réglementation opérable](/00_introduction/reglementation-operable#un-mouvement-européen) pour le contexte international.
+
+## Historique : rencontre du 8 décembre 2025
 
 Le 8 décembre 2025, une journée de travail a réuni plusieurs équipes impliquées dans la conception de simulateurs d'aides publiques. L'objectif : partager les retours d'expérience, prendre du recul sur les pratiques, et identifier des opportunités concrètes de mutualisation. Les ateliers ont identifié des défis communs et des pistes qui ont été documentées ici, notamment en matière de conception partagée, de tests et de documentation.
 
@@ -25,7 +27,7 @@ Cette documentation parcellaire a vocation à être enrichie collectivement par 
 
 1. **Issue GitHub** : pour signaler un problème ou proposer une amélioration, [ouvrir une issue](https://github.com/betagouv/aides-simplifiees-docs/issues)
 2. **Pull Request** : pour proposer directement une modification, voir le [guide de contribution](https://github.com/betagouv/aides-simplifiees-docs/blob/main/CONTRIBUTING.md)
-3. **Discussion** : pour échanger sur un sujet transverse, <canal à définir>
+3. **Discussion** : pour échanger sur un sujet transverse, ouvrir une [discussion GitHub](https://github.com/betagouv/aides-simplifiees-docs/discussions) ou une issue
 
 ::: tip Vous n'êtes pas développeur ?
 Pas besoin de maîtriser Git pour contribuer. Une issue décrivant votre retour d'expérience ou votre suggestion suffit, quelqu'un pourra peut-être se charger de l'intégrer.

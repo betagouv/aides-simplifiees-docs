@@ -41,6 +41,9 @@ Ressource logicielle, documentaire ou méthodologique ouverte, réutilisable et 
 ### Critères d'éligibilité
 Conditions à remplir pour pouvoir bénéficier d'une aide publique (âge, revenus, situation familiale, etc.).
 
+### Catala
+Langage de programmation littéraire développé par l'INRIA, où le texte de loi et le code coexistent dans le même document, avec preuve formelle de couverture. Voir [Outils et briques réutilisables](/03_mutualiser/02_outils).
+
 ## D
 
 ### Dispatcher
@@ -107,6 +110,9 @@ Moteur de règles open source développé par beta.gouv.fr, privilégiant la lis
 ### Registre d'interprétations
 Document traçant les décisions prises lorsqu'un texte réglementaire est ambigu. Chaque interprétation est justifiée, datée et validée par un expert, permettant de comprendre pourquoi le simulateur se comporte d'une certaine manière.
 
+### Réglementation opérable
+Champ de transformation de la législation en artefacts numériques lisibles par les humains, exécutables par les machines et gouvernables collectivement. Englobe les moteurs de calcul (*Rules as Code*), mais aussi les jeux de tests partagés, la documentation vivante, la couche de traduction formulaire–moteur et le balisage des textes sources. Voir [La réglementation opérable](/00_introduction/reglementation-operable).
+
 ### Règle (réglementaire)
 Portion d'un texte réglementaire identifiable comme une instruction précise émise par les législateurs. Exemple : "condition d'âge pour l'éligibilité à l'APL en location".
 
@@ -148,6 +154,8 @@ Processus par lequel un expert du domaine vérifie que le modèle informatique r
 - **CI/CD** (Continuous Integration/Continuous Deployment) : pratiques d'automatisation du développement
 - **DSFR** (Design System de l'État Français) : système de design officiel de l'État
 - **E2E** (End-to-End) : tests de bout en bout simulant le parcours utilisateur
+- **ELI** (European Legislation Identifier) : standard d'identification pérenne des textes législatifs européens
+- **RaC** (Rules as Code) : approche de traduction des règles juridiques en code exécutable
 - **RSA** (Revenu de Solidarité Active) : aide garantissant un revenu minimum
 - **UX** (User Experience) : expérience utilisateur, qualité d'usage d'un service
 
