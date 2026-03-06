@@ -6,7 +6,7 @@ import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
  */
 
 export default defineConfig({
-  title: "Guide aides simplifiées",
+  title: "Guide de la réglementation opérable",
   description: "Documentation technique et méthodologique pour la modélisation et la simulation des aides publiques",
   lang: 'fr-FR',
   base: '/',
@@ -78,7 +78,7 @@ export default defineConfig({
           { text: 'Écosystème interopérable', link: '/04_horizons/01_ecosysteme-interoperable' },
           { text: 'Interfaces & Contribution', link: '/04_horizons/02_interfaces-contribution' },
           { text: 'Nouveaux usages', link: '/04_horizons/03_nouveaux-usages' },
-          { text: 'Agenda d\'exploration', link: '/04_horizons/04_agenda-exploration' }
+          { text: 'Agenda de recherche', link: '/04_horizons/04_agenda-recherche' }
         ]
       },
       {

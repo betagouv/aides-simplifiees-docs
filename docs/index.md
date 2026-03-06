@@ -1,12 +1,8 @@
-# Guide aides simplifiées
+# Guide de la réglementation opérable
 
-Ce guide, à l'initative de l'équipe du produit [aides simplifiées](/00_introduction/aides-simplifiees), souhaite accompagner les équipes qui construisent des services numériques autour des aides publiques et de la réglementation. Il capitalise les méthodologies, recense les outils existants et ouvre des perspectives sur les usages à venir du *Rules as Code*.
+Cette documentation accompagne les équipes qui construisent des services numériques autour des aides publiques et de la réglementation. Née de l'expérience du produit [Aides Simplifiées](/00_introduction/aides-simplifiees), elle est enrichie par l'écosystème des simulateurs publics ouverts et la [communauté](/00_introduction/communaute) qui les porte.
 
-## Une dynamique collective
-
-::: info Rencontre du 8 décembre 2025
-Plusieurs équipes de l'écosystème betagouv se sont réunies pour partager leurs retours d'expérience et identifier des opportunités de mutualisation. Cette documentation est l'un des supports de cette dynamique collective. [En savoir plus](/00_introduction/communaute)
-:::
+Elle capitalise les méthodologies, recense les outils existants et ouvre des perspectives sur les usages à venir de la réglementation opérable — le champ plus large dans lequel s'inscrit le *Rules as Code*.
 
 ## À qui s'adresse cette documentation ?
 
@@ -20,7 +16,7 @@ Cette documentation s'adresse :
 ## Parcours de lecture
 
 *   [**Introduction**](/00_introduction/)
-    Comprendre la démarche d'aides simplifiées, le concept de *Rules as Code* et la communauté qui le porte.
+    La genèse du guide, le cadre *Rules as Code* et la communauté qui le porte.
 
 *   [**Concevoir un simulateur**](/02_simulateurs/)
     Le guide opérationnel pour passer du texte réglementaire au code exécutable : modélisation, architecture, tests et maintenance.
@@ -29,7 +25,7 @@ Cette documentation s'adresse :
     Panorama de l'écosystème existant, catalogue des outils réutilisables et patterns de conception partagés.
 
 *   [**Horizons**](/04_horizons/)
-    Les perspectives d'évolution : catalogues de règles, infrastructures distribuées et nouveaux usages.
+    Les perspectives d'évolution : écosystème interopérable, interfaces de contribution, nouveaux usages et agenda de recherche.
 
 *   [**Ressources**](/99_ressources/)
     Glossaire technique et historique des simulateurs publics.

@@ -1,11 +1,11 @@
 # Introduction
 
-Cette section présente le contexte et les objectifs de cette documentation.
+Cette section présente le contexte, la genèse et les objectifs de cette documentation.
 
 ## Contenu
 
 ### [Aides simplifiées](./aides-simplifiees.md)
-Présentation du produit et de l'équipe à l'origine de cette documentation.
+Le produit beta.gouv à l'origine de cette documentation : contexte, approche et héritage méthodologique.
 
 ### [Rules as Code](./rules-as-code.md)
 Le cadre théorique : pourquoi modéliser les aides, tensions et gouvernance.
