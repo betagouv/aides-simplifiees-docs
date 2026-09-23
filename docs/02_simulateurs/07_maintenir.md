@@ -1,31 +1,32 @@
 # Maintenir son simulateur
 
-La maintenance d'un simulateur est un défi perpétuel contre l'obsolescence. Le droit change, les barèmes évoluent, les situations de vie se transforment. Un simulateur non maintenu devient rapidement une source de désinformation publique.
+Le droit change, les barèmes sont revalorisés, les situations des usagers évoluent. Un simulateur laissé sans mise à jour affiche des montants calculés sur des règles abrogées.
 
-## La veille réglementaire
+## Veille réglementaire
 
-La maintenance commence bien avant le code, par une veille juridique active. Elle peut être structurée à plusieurs échelles :
-*   **Automatisée** : Alertes sur les mots-clés Légifrance et les API des éditeurs juridiques.
-*   **Humaine** : Revue hebdomadaire des circulaires et instructions techniques par un expert métier.
-*   **Institutionnelle** : Points de contact réguliers avec les administrations porteuses des aides pour anticiper les réformes.
+La maintenance commence par la veille juridique, à trois niveaux :
 
-## Le cycle de mise à jour
+- des alertes automatiques sur des mots-clés de Légifrance et des éditeurs juridiques ;
+- une revue hebdomadaire des circulaires et instructions techniques par un expert métier ;
+- des échanges réguliers avec les administrations qui gèrent les aides, pour anticiper les réformes.
 
-Chaque évolution réglementaire doit suivre un protocole strict pour éviter les régressions :
-1.  **Analyse d'impact** : Identifier quelles variables et quelles formules sont touchées.
-2.  **Mise à jour des tests** : Modifier d'abord les cas types pour refléter la nouvelle règle (TDD).
-3.  **Implémentation** : Modifier le code du modèle.
-4.  **Validation** : Vérifier que les nouveaux tests passent et que les anciens cas non concernés restent stables.
-5.  **Documentation** : Mettre à jour le changelog et les diagrammes explicatifs.
+## Cycle de mise à jour
 
-## La dette de représentation
+Chaque évolution réglementaire suit les mêmes étapes :
 
-Au fil des évolutions, un risque insidieux guette les projets : la **dette de représentation**. C'est le décalage progressif entre la réalité du code (qui exécute la règle à jour) et sa documentation (maquettes, schémas, spécifications) qui n'a pas été mise à jour.
+- identifier les variables et les formules concernées ;
+- modifier d'abord les cas types pour décrire la nouvelle règle ;
+- modifier le code du modèle ;
+- vérifier que les nouveaux tests passent et que les cas non concernés donnent les mêmes résultats ;
+- mettre à jour le journal des modifications et les diagrammes.
 
-Ce décalage est dangereux car il fausse les décisions : les experts valident des règles sur des documents obsolètes, croyant valider le système réel. Pour la combattre, une stratégie inspirante est celle de la **"Living Documentation"** :
+## Documentation en retard sur le code
 
-1.  **Single Source of Truth** : Le code du modèle est la seule source de vérité.
-2.  **Evergreen Documentation** : Toute documentation externe gagne à être une projection de ce modèle, générée automatiquement (diagrammes de graphes, arbres de décision, documentation API).
-3.  **Architecture as Code** : Les schémas d'architecture eux-mêmes peuvent être décrits textuellement (C4 Model, Mermaid) et versionnés avec le code, pour évoluer au même rythme.
+Le code du modèle applique la règle à jour ; les maquettes, schémas et spécifications peuvent rester à une version antérieure. Les experts qui valident une règle sur un document ancien valident alors une autre règle que celle du simulateur.
 
-Toute documentation statique (Word, PDF, Slide) court le risque de devenir une dette technique si elle n'est pas régulièrement synchronisée.
+Le texte en vigueur fait foi. Pour la documentation du modèle, le code du modèle est la référence, et les documents se génèrent depuis lui :
+
+- les diagrammes (graphes de dépendances, arbres de décision) et la documentation d'API se génèrent à partir du code ;
+- les schémas d'architecture s'écrivent en texte (C4, Mermaid) et se versionnent avec le code.
+
+Cette pratique est décrite par Cyrille Martraire dans *Living Documentation* (2019). Une documentation statique (Word, PDF, diaporama) se met à jour à la main, à chaque modification du modèle.

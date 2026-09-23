@@ -1,60 +1,61 @@
-# Outils et briques réutilisables
+# Outils réutilisables
 
-L'architecture d'un simulateur repose sur l'assemblage de composants éprouvés. Cette page recense les briques open source disponibles, en distinguant les moteurs de calcul, les bibliothèques de règles métier et les outils d'interface.
+Cette page recense les outils open source disponibles pour construire un simulateur : moteurs ouverts, modèles de règles publiés, outils de formulaire, données et standards.
 
-## Moteurs de règles
+## Moteurs ouverts
 
-Le choix du moteur est structurant pour l'architecture technique et la gouvernance du projet.
+Le moteur détermine l'architecture technique et l'organisation des contributions au modèle. Les administrations emploient aussi des moteurs internes à leurs systèmes d'information et des plateformes commerciales, décrits dans [La réglementation opérable](/00_introduction/reglementation-operable#moteurs-ouverts).
 
 ### Publicodes
-Langage déclaratif en YAML conçu pour rendre les algorithmes "explicables".
-*   **Usage recommandé** : Simulateurs grand public, calcul côté navigateur, besoin fort de documentation interactive.
-*   **Points forts** : Transparence native, syntaxe accessible aux non-développeurs, écosystème JavaScript/React.
-*   **Points d'attention** : La gestion d'entités multiples (foyers complexes) est moins naturelle qu'avec OpenFisca.
-*   **Packages** : `publicodes` (moteur), `@publicodes/react-ui` (doc), `@publicodes/rest-api`.
+
+Langage de règles en YAML, exécuté par un moteur JavaScript, qui produit l'explication de chaque calcul.
+
+- Usage : simulateurs grand public, calcul dans le navigateur, documentation interactive des règles.
+- Atouts : règles nommées en français, documentation générée, écosystème JavaScript et React.
+- Limite : une situation Publicodes décrit une personne ou un foyer ; plusieurs entités liées se modélisent à la main.
+- Paquets : `publicodes` (moteur), `@publicodes/react-ui` (documentation), `@publicodes/rest-api` (calcul sur serveur).
 
 ### OpenFisca
-Moteur de microsimulation en Python, standard de fait pour le système socio-fiscal français.
-*   **Usage recommandé** : Modélisation fine des interactions foyer/ménage/famille, calculs sur des périodes glissantes, simulation de réformes.
-*   **Points forts** : Robustesse sur les modèles complexes, API REST native, communauté internationale.
-*   **Points d'attention** : Courbe d'apprentissage technique plus élevée, exécution serveur obligatoire.
+
+Moteur de microsimulation en Python, employé pour le système socio-fiscal français par LexImpact, aides-jeunes et mesdroitssociaux.gouv.fr. Sur le socio-fiscal, les aides dépendent les unes des autres (SMIC, bases ressources, définitions de revenus) : un modèle commun les calcule ensemble.
+
+- Usage : interactions entre individu, famille, foyer fiscal et ménage, calculs sur des périodes glissantes, simulation de réformes.
+- Atouts : modèles de grande taille, API REST, communauté internationale.
+- Limite : un environnement Python est nécessaire, en pratique un serveur qui expose une API.
 
 ### Catala
-Langage de programmation littéraire développé par l'INRIA, garantissant une correspondance formelle entre texte de loi et code.
-*   **Usage recommandé** : Projets de recherche ou cas nécessitant une preuve formelle de conformité.
-*   **Statut** : Prometteur mais encore peu déployé en production.
 
-## Bibliothèques de règles métier (Packages)
+Langage de programmation littéraire développé par Inria : le texte de loi et le code qui l'applique sont écrits dans le même fichier, et les tests sont vérifiés à la compilation. Catala se compile vers OCaml, Python ou JavaScript.
 
-Plutôt que de redévelopper les règles, il est possible d'importer des modèles existants maintenus par d'autres équipes.
+- Usage : calculs qui demandent une sémantique formelle et un lien article par article avec le texte.
+- Déploiements : Prest'Agri (beta.gouv.fr) calcule avec des règles Catala compilées derrière une API ; la DGFiP expérimente Catala pour l'impôt sur le revenu.
 
-*   **`modele-social`** (Urssaf) : Le socle complet des cotisations et de la fiscalité des revenus.
-*   **`@socialgouv/modeles-social`** : Les règles de 47 conventions collectives (préavis, indemnités).
-*   **`mesaidesreno`** : Règles d'éligibilité et calculs pour MaPrimeRénov' et les CEE.
-*   **`@incubateur-ademe/nosgestesclimat`** : Modèle complet de l'empreinte carbone individuelle.
-*   **`@betagouv/aides-velo`** : Aides nationales et locales à l'achat de vélo.
+## Modèles de règles publiés sur npm
 
-## Outils d'interface et formulaires
+Des équipes publient leurs modèles de règles en paquets réutilisables :
 
-Ces outils facilitent la connexion entre le modèle de règles et l'interface utilisateur.
+- `modele-social` (Urssaf) : cotisations sociales et fiscalité des revenus.
+- `@socialgouv/modeles-social` : règles des simulateurs du code du travail numérique (préavis, indemnités).
+- `mesaidesreno` : éligibilité et calculs pour MaPrimeRénov' et les certificats d'économies d'énergie.
+- `@incubateur-ademe/nosgestesclimat` : empreinte carbone individuelle.
+- `@betagouv/aides-velo` : aides nationales et locales à l'achat d'un vélo.
+- `@shallowred/publicodes-entreprise-innovation` ([dépôt](https://github.com/betagouv/publicodes-entreprise-innovation)) : aides fiscales à l'innovation des entreprises (CIR, CII, JEI), utilisé par le simulateur affiché sur entreprendre.service-public.fr.
 
-*   **`@publicodes/forms`** : Génération automatique de formulaires React à partir des métadonnées d'un modèle Publicodes.
-*   **`@betagouv/survey-schema`** (à l'état d'esquisse): Spécification JSON pour décrire des questionnaires indépendants du moteur de calcul, permettant de changer de moteur sans refaire l'UI.
+## Outils de formulaire
 
-## Données et APIs
+- `@publicodes/forms` convertit des règles Publicodes en formulaire interactif.
 
-L'intégration de données externes fiabilise la saisie et le calcul.
+## Données et API
 
-*   **API Particulier / Entreprise** : Récupération de données administratives certifiées.
-*   **BAN (Base Adresse Nationale)** : Normalisation indispensable pour les aides géolocalisées.
-*   **Données territoriales** : Référentiels locaux (EPCI, zonages) souvent nécessaires pour les aides locales.
+- API Particulier et API Entreprise : données administratives certifiées, pour pré-remplir la saisie.
+- Base Adresse Nationale : normalisation des adresses, nécessaire aux aides qui dépendent du lieu.
+- Référentiels territoriaux (EPCI, zonages) : nécessaires aux aides locales.
 
-## Ontologies et standards émergents
+## Standards de description des règles et des textes
 
-Au-delà des moteurs d'exécution, l'interopérabilité à long terme repose sur des standards de représentation de la norme juridique.
+- ELI (*European Legislation Identifier*) donne une URI stable à un texte publié au Journal officiel. En France, les URI ELI se résolvent sur Légifrance et les métadonnées ELI sont partielles.
+- LEGIARTI, l'identifiant de Légifrance, désigne un article de code dans une version donnée. C'est lui qui relie une variable à l'article qu'elle applique.
+- FLINT et Calculemus, développés par le TNO aux Pays-Bas, décomposent une norme en actes, faits et devoirs, reliés aux passages du texte source.
+- LegalRuleML, standard OASIS, décrit formellement des règles juridiques ; aucun projet en production ne l'emploie.
 
-*   **FLINT & Calculemus** : Développés par le TNO (Pays-Bas), ces standards décomposent la norme en concepts atomiques (Actes, Faits, Devoirs) liés sémantiquement aux textes sources. Ils visent une traçabilité totale ("Deep linking") entre le résultat d'un calcul et la phrase de loi correspondante.
-*   **LegalRuleML** : Standard OASIS pour la représentation formelle des règles juridiques.
-*   **ELI (European Legislation Identifier)** : Standard d'identification pérenne des textes législatifs européens, prérequis indispensable pour lier le code au droit de manière stable.
-
-Bien que Publicodes et OpenFisca n'implémentent pas nativement ces standards formels, un enjeu long terme pourrait-être de converger vers des modèles exportables capables de dialoguer avec ces ontologies internationales.
+Les registres de règles, comme [regels.overheid.nl](https://regels.overheid.nl) et [regles.data.gouv.fr](https://github.com/datagouv/regles.data.gouv.fr), décrivent chaque modèle par des métadonnées (base légale, moteur, version, cas types) alignées sur le vocabulaire européen CPSV-AP. La logique reste dans le code de chaque modèle.

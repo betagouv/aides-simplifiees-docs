@@ -1,19 +1,6 @@
 # Introduction
 
-Cette section présente le contexte et les objectifs de cette documentation.
+- [Réglementation opérable](./reglementation-operable.md) : ce qui rend une règle de droit exécutable et vérifiable, les moteurs ouverts et les initiatives européennes.
+- [Communauté](./communaute.md) : les équipes qui développent des simulateurs d'aides publiques, et la contribution à cette documentation.
 
-## Contenu
-
-### [Aides simplifiées](./aides-simplifiees.md)
-Présentation du produit et de l'équipe à l'origine de cette documentation.
-
-### [Rules as Code](./rules-as-code.md)
-Le cadre théorique : pourquoi modéliser les aides, tensions et gouvernance.
-
-### [Communauté](./communaute.md)
-L'écosystème des équipes qui construisent des simulateurs d'aides publiques.
-
-## Prochaines étapes
-
-- [Concevoir un simulateur](/02_simulateurs/) : Le guide pratique
-- [Mutualiser](/03_mutualiser/) : L'écosystème et la contribution
+Pages suivantes : [Concevoir un simulateur](/02_simulateurs/) et [Mutualiser](/03_mutualiser/).

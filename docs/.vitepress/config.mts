@@ -6,8 +6,8 @@ import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
  */
 
 export default defineConfig({
-  title: "Guide aides simplifiées",
-  description: "Documentation technique et méthodologique pour la modélisation et la simulation des aides publiques",
+  title: "Guide de la réglementation opérable",
+  description: "Méthodes et outils pour modéliser, tester et maintenir les règles de calcul des aides publiques",
   lang: 'fr-FR',
   base: '/',
   markdown: {
@@ -32,28 +32,26 @@ export default defineConfig({
     nav: [
       { text: 'Accueil', link: '/' },
       { text: 'Simulateurs', link: '/02_simulateurs/' },
-      { text: 'Mutualiser', link: '/03_mutualiser/' },
-      { text: 'Horizons', link: '/04_horizons/' }
+      { text: 'Mutualiser', link: '/03_mutualiser/' }
     ],
 
     sidebar: [
       {
         text: 'Introduction',
         items: [
-          { text: 'Aides simplifiées', link: '/00_introduction/aides-simplifiees' },
-          { text: 'Rules as Code', link: '/00_introduction/rules-as-code' },
+          { text: 'Réglementation opérable', link: '/00_introduction/reglementation-operable' },
           { text: 'Communauté', link: '/00_introduction/communaute' }
         ]
       },
       {
-        text: 'Guide des simulateurs',
+        text: 'Concevoir un simulateur',
         collapsed: false,
         items: [
           { text: 'Vue d\'ensemble', link: '/02_simulateurs/' },
-          { text: 'Fondamentaux', link: '/02_simulateurs/01_fondamentaux' },
+          { text: 'Principes de conception', link: '/02_simulateurs/01_fondamentaux' },
           { text: 'Modéliser une aide', link: '/02_simulateurs/02_modeliser-une-aide' },
           { text: 'Simulateur multi-aide', link: '/02_simulateurs/03_simulateur-multi-aide' },
-          { text: 'Passer en code', link: '/02_simulateurs/05_passer-en-code' },
+          { text: 'Écrire le modèle de règles', link: '/02_simulateurs/05_passer-en-code' },
           { text: 'Tester et ajuster', link: '/02_simulateurs/06_tester-ajuster' },
           { text: 'Maintenir', link: '/02_simulateurs/07_maintenir' }
         ]
@@ -68,17 +66,6 @@ export default defineConfig({
           { text: 'Patterns architecturaux', link: '/03_mutualiser/03_patterns' },
           { text: 'Contribuer', link: '/03_mutualiser/04_contribuer' },
           { text: 'Ressources visuelles', link: '/03_mutualiser/05_visuels' }
-        ]
-      },
-      {
-        text: 'Horizons',
-        collapsed: false,
-        items: [
-          { text: 'Vue d\'ensemble', link: '/04_horizons/' },
-          { text: 'Écosystème interopérable', link: '/04_horizons/01_ecosysteme-interoperable' },
-          { text: 'Interfaces & Contribution', link: '/04_horizons/02_interfaces-contribution' },
-          { text: 'Nouveaux usages', link: '/04_horizons/03_nouveaux-usages' },
-          { text: 'Agenda d\'exploration', link: '/04_horizons/04_agenda-exploration' }
         ]
       },
       {

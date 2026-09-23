@@ -1,39 +1,24 @@
-# Guide aides simplifiées
+# Guide de la réglementation opérable
 
-Ce guide, à l'initative de l'équipe du produit [aides simplifiées](/00_introduction/aides-simplifiees), souhaite accompagner les équipes qui construisent des services numériques autour des aides publiques et de la réglementation. Il capitalise les méthodologies, recense les outils existants et ouvre des perspectives sur les usages à venir du *Rules as Code*.
+Cette documentation s'adresse aux équipes qui construisent des services numériques autour des aides publiques : simulateurs, modèles de règles, cas types. Elle rassemble des méthodes de modélisation, les outils ouverts existants et les retours d'expérience des équipes qui développent ces simulateurs, réunies dans une [communauté](/00_introduction/communaute).
 
-## Une dynamique collective
+La réglementation opérable désigne l'ensemble du travail qui rend une règle de droit exécutable et vérifiable : l'écriture de la règle dans un langage formel, que le terme *Rules as Code* désigne, et aussi les cas de tests, la documentation et les références aux textes.
 
-::: info Rencontre du 8 décembre 2025
-Plusieurs équipes de l'écosystème betagouv se sont réunies pour partager leurs retours d'expérience et identifier des opportunités de mutualisation. Cette documentation est l'un des supports de cette dynamique collective. [En savoir plus](/00_introduction/communaute)
-:::
+## Lecteurs
 
-## À qui s'adresse cette documentation ?
-
-Cette documentation s'adresse :
-- aux **équipes produit** qui construisent des simulateurs ;
-- aux **développeurs** qui les implémentent ;
-- aux **experts métier et juristes** qui valident la conformité des règles ;
-- aux **décideurs et sponsors** qui arbitrent les investissements ;
-- ainsi qu'aux **curieux et chercheurs** qui s'intéressent aux politiques publiques numériques.
+- les équipes produit qui conçoivent des simulateurs ;
+- les développeurs qui écrivent les modèles de règles ;
+- les experts métier et les juristes qui vérifient les règles ;
+- les responsables qui décident des investissements ;
+- les chercheurs qui étudient les politiques publiques numériques.
 
 ## Parcours de lecture
 
-*   [**Introduction**](/00_introduction/)
-    Comprendre la démarche d'aides simplifiées, le concept de *Rules as Code* et la communauté qui le porte.
-
-*   [**Concevoir un simulateur**](/02_simulateurs/)
-    Le guide opérationnel pour passer du texte réglementaire au code exécutable : modélisation, architecture, tests et maintenance.
-
-*   [**Mutualiser**](/03_mutualiser/)
-    Panorama de l'écosystème existant, catalogue des outils réutilisables et patterns de conception partagés.
-
-*   [**Horizons**](/04_horizons/)
-    Les perspectives d'évolution : catalogues de règles, infrastructures distribuées et nouveaux usages.
-
-*   [**Ressources**](/99_ressources/)
-    Glossaire technique et historique des simulateurs publics.
+- [Introduction](/00_introduction/) : la réglementation opérable et la communauté des équipes.
+- [Concevoir un simulateur](/02_simulateurs/) : du texte réglementaire au modèle de règles, puis les tests et la maintenance.
+- [Mutualiser](/03_mutualiser/) : les projets existants, les outils réutilisables et la contribution à des modèles partagés.
+- [Ressources](/99_ressources/) : glossaire et historique des simulateurs publics.
 
 ::: tip Contribuer
-Cette documentation gagnerait à être mise en commun ! Chaque équipe peut l'enrichir de ses apprentissages. [Comment contribuer](/00_introduction/communaute#contribuer-à-cette-documentation)
+Chaque équipe peut ajouter ses retours d'expérience à cette documentation. Voir [Contribuer](/00_introduction/communaute#contribuer).
 :::

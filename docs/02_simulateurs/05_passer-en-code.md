@@ -1,87 +1,93 @@
-# Passer le modèle de règle en code
+# Écrire le modèle de règles
 
-L'implémentation technique est l'étape où le modèle conceptuel devient un artefact exécutable. L'objectif : produire un code lisible, auditable et étroitement lié à sa source juridique.
+Cette étape écrit le modèle de règles dans un moteur. Le code obtenu se lit, se vérifie et cite ses sources juridiques.
 
-## Glossaire des concepts clés
+Les définitions de dispositif, de règle et de modélisation figurent au [glossaire](/99_ressources/glossaire).
 
-**Modéliser un dispositif** : Traduire un texte réglementaire écrit en langage naturel/juridique en langage formel (logique mathématique, organigramme, algorithme...)
+## Modèle de la règle et modèle du parcours
 
-**Un dispositif** : Une ou plusieurs règles qui ensemble visent à régir une situation particulière ou produire un effet juridique précis. *Exemple : aide personnalisée au logement*
+Deux modèles se tiennent dans des fichiers séparés :
 
-**Une règle** : Une portion d'un texte réglementaire (une ou plusieurs *mesures*) que l'on peut identifier comme étant une instruction émise par les législateurs. *Exemple : règle d'éligibilité d'une personne à l'APL en cas de location en foyer*
+- le modèle de la règle suit le texte (conditions, seuils, barèmes), de façon complète et fidèle ;
+- le modèle du parcours adapte la règle à l'usager (questions reformulées, ordre des questions).
 
-> Pour les définitions complètes, voir le [glossaire](/99_ressources/glossaire) (dispatcher, entité, foyer fiscal, etc.).
+## Choisir un moteur ouvert
 
-## Deux formalismes complémentaires
+Le moteur détermine la façon d'écrire les règles et le lieu du calcul.
 
-Il est crucial de distinguer deux couches de modélisation qui doivent cohabiter sans se mélanger :
-1.  **La modélisation algorithmique** : Elle traduit la règle telle qu'elle est écrite dans la loi (conditions, seuils, barèmes). Elle doit être exhaustive et fidèle.
-2.  **La modélisation du parcours** : Elle adapte la règle à l'expérience utilisateur (simplification du langage, ordre des questions).
+Publicodes décrit les règles en YAML, avec des noms de règles en français. Son moteur JavaScript calcule dans le navigateur ou sur un serveur, et génère une documentation interactive de chaque calcul. Il convient aux simulateurs pédagogiques et aux parcours où l'usager fait varier ses réponses, comme mon-entreprise.
 
-## Choisir le moteur de règles
+OpenFisca décrit les règles en Python. Il gère plusieurs entités liées (individu, famille, foyer fiscal, ménage) et des périodes de calcul, et s'exécute sur un serveur, en général derrière une API. Il convient aux calculs socio-fiscaux où les aides dépendent les unes des autres (impôts, prestations sociales).
 
-Le choix du moteur détermine la philosophie de l'implémentation.
+## Exemple : l'aide Mobili-Jeune
 
-**Publicodes** (YAML) privilégie la **transparence**.
-*   *Forces* : Lisible par les non-dév, exécution client (web), documentation interactive générée automatiquement.
-*   *Cible* : Simulateurs pédagogiques, parcours exploratoires (*mon-entreprise*).
+Version simplifiée de l'[aide Mobili-Jeune](https://www.actionlogement.fr/aide-mobili-jeune) d'Action Logement : *aide de 10 € à 100 € par mois pour les alternants de moins de 30 ans dont le salaire ne dépasse pas 120 % du SMIC, calculée sur le loyer restant après l'aide au logement*.
 
-**OpenFisca** (Python) privilégie la **puissance de modélisation**.
-*   *Forces* : Gestion native des entités complexes (foyers) et du temps (périodes glissantes), calcul massif sur serveur.
-*   *Cible* : Systèmes socio-fiscaux complets, calculs de droits proches des applications réelles (impôts, prestations sociales).
-
-## Exemple comparatif : Mobili-jeunes
-
-Prenons une règle simplifiée : *"Aide de 100€ max pour les apprentis de moins de 30 ans, plafonnée à 10€/m² de loyer"*.
-
-### Modèle conceptuel
+### Diagramme de la règle
 
 ```mermaid
 graph TD
-    A["Âge < 30 ans ?"] -->|"Oui"| B["Statut = Apprenti ?"]
-    B -->|"Oui"| C["Montant = min(100€, surface * 10€/m²)"]
-    B -->|"Non"| D["Montant = 0"]
+    A["Âge < 30 ans ?"] -->|"Oui"| B["Alternant ?"]
+    B -->|"Oui"| S["Salaire ≤ 120 % du SMIC ?"]
+    S -->|"Oui"| C["Montant = min(100 €, loyer - aide au logement)"]
+    S -->|"Non"| D["Montant = 0"]
+    B -->|"Non"| D
     A -->|"Non"| D
 ```
 
-### Implémentation OpenFisca (Python)
+### OpenFisca
 
-La logique est encapsulée dans des classes typées, avec une gestion explicite des entités et périodes.
+Chaque variable est une classe Python, avec son entité et sa période.
 
 ```python
-class mobili_jeunes_eligibilite(Variable):
+class mobili_jeune_eligibilite(Variable):
     value_type = bool
     entity = Individu
-    label = "Eligibilité Mobili Jeunes"
+    label = "Éligibilité à l'aide Mobili-Jeune"
     definition_period = MONTH
-    
-    def formula(individu, period):
+
+    def formula(individu, period, parameters):
         age = individu('age', period)
-        apprenti = individu('apprenti', period)
-        return (age < 30) * apprenti
+        alternant = individu('alternant', period)
+        salaire = individu('salaire_de_base', period)
+        smic = parameters(period).marche_travail.salaire_minimum.smic.smic_b_mensuel
+        return (age < 30) * alternant * (salaire <= 1.2 * smic)
+
+
+class mobili_jeune(Variable):
+    value_type = float
+    entity = Individu
+    label = "Montant de l'aide Mobili-Jeune"
+    definition_period = MONTH
+
+    def formula(individu, period):
+        eligible = individu('mobili_jeune_eligibilite', period)
+        reste = individu.menage('loyer', period) - individu.famille('aide_logement', period)
+        return eligible * min_(100, max_(reste, 0))
 ```
 
-### Implémentation Publicodes (YAML)
+### Publicodes
 
-La logique est décrite comme une phrase structurée, lisible presque comme du français.
+Chaque règle a un nom en français et se compose de mécanismes (`toutes ces conditions`, `le minimum de`).
 
 ```yaml
-mobili-jeunes . éligibilité:
-  formule:
-    toutes ces conditions:
-      - âge < 30
-      - apprenti = oui
+mobili-jeune . éligibilité:
+  toutes ces conditions:
+    - âge < 30
+    - alternant = oui
+    - salaire brut <= 120% * SMIC
 
-mobili-jeunes . montant:
-  formule:
+mobili-jeune . montant:
+  applicable si: éligibilité
+  valeur:
     le minimum de:
       - 100 €/mois
-      - surface logement * 10 €/m²
-    applicable si: mobili-jeunes . éligibilité
+      - loyer - aide au logement
 ```
 
-## Connecter le modèle au formulaire
+## Relier le modèle au formulaire
 
-Une fois le modèle codé, il faut le brancher à l'interface. C'est là que se jouent les choix d'architecture (voir [Patterns architecturaux](/03_mutualiser/03_patterns)) :
-*   **Mapping direct** : Le champ du formulaire porte le même nom que la variable (simple mais rigide).
-*   **Mapping avec transformation** : Une couche de code (dispatchers) traduit la réponse usager en variables moteur (flexible mais complexe à auditer).
+Le modèle se relie ensuite à l'interface, selon l'un des choix décrits dans [Patterns architecturaux](/03_mutualiser/03_patterns) :
+
+- Le champ du formulaire a le même nom que la variable du moteur : le code est simple, et le formulaire suit la structure du modèle.
+- Une fonction de conversion transforme chaque réponse en une ou plusieurs variables du moteur : le formulaire est libre, et cette fonction doit être documentée pour être auditée.
