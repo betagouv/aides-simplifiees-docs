@@ -1,76 +1,44 @@
 # Guide de contribution
 
-Cette documentation est un bien commun. Elle s'enrichit de vos retours d'expérience, corrections et ressources.
+Cette documentation s'enrichit des retours d'expérience, des corrections et des ressources proposées par les équipes qui construisent des services autour des aides publiques.
 
 ## Avant de contribuer
 
-Familiarisez-vous avec le contenu existant en parcourant la documentation. Consultez le [Panorama](/docs/03_mutualiser/01_panorama.md) si vous voulez situer votre projet dans l'écosystème.
+Parcourez la documentation. Le [panorama des projets](docs/03_mutualiser/01_panorama.md) situe les simulateurs existants.
 
 ## Types de contributions
 
-### Retours d'expérience
+- Un retour d'expérience : comment une équipe a organisé la validation métier, ou suit les évolutions réglementaires de son modèle.
+- Une correction ou une clarification : formulation imprécise, exemple à améliorer, lien cassé.
+- Un ajout de ressource : un projet pour le panorama, une référence.
+- Une proposition de structure : une section manquante, un sujet à développer, une réorganisation.
 
-Vous avez résolu un problème dans votre projet ? Partagez comment. Par exemple : "voici comment on a organisé la validation métier", "comment on maintient notre modèle de règles face aux évolutions réglementaires".
+## Par une issue GitHub
 
-### Corrections et clarifications
+Pour proposer une amélioration ou signaler un problème sans modifier les fichiers, ouvrez une [issue](https://github.com/betagouv/aides-simplifiees-docs/issues) qui décrit votre suggestion ou le problème. Une issue suffit pour contribuer sans utiliser Git, ou pour discuter d'une idée avant de l'écrire.
 
-Une formulation est imprécise ? Un exemple pourrait être plus clair ? Un lien est cassé ? Signalez-le.
+## Par une pull request
 
-### Ajouts de ressources
-
-Un projet devrait figurer dans le panorama ? Une référence externe est pertinente ? Proposez-la.
-
-### Aménagements de structure
-
-Il manque une section ? Un sujet mériterait d'être approfondi ? Suggérez une réorganisation.
-
-## Comment contribuer
-
-### Par issue GitHub
-
-Pour proposer une amélioration ou signaler un problème sans modifier directement le code :
-
-1. Allez sur [Issues](https://github.com/betagouv/aides-simplifiees-docs/issues)
-2. Cliquez sur "New Issue"
-3. Décrivez clairement votre suggestion ou le problème
-
-Les issues sont la meilleure approche si vous n'êtes pas à l'aise avec Git, ou si vous voulez d'abord en discuter.
-
-### Par Pull Request
-
-Pour proposer une modification directe :
-
-1. **Créez un fork** du repository
-2. **Créez une branche** : `git checkout -b mon-amelioration`
-3. **Modifiez les fichiers** Markdown dans le dossier `docs/`
-4. **Testez localement** :
+1. Créez un fork du dépôt.
+2. Créez une branche : `git checkout -b mon-amelioration`.
+3. Modifiez les fichiers Markdown du dossier `docs/`.
+4. Vérifiez le rendu en local :
    ```bash
    pnpm install
    pnpm run dev
    ```
-5. **Commitez et poussez** :
+5. Commitez et poussez :
    ```bash
-   git add .
-   git commit -m "Ajouter/corriger/clarifier: description courte"
+   git add docs/
+   git commit -m "docs: description courte"
    git push origin mon-amelioration
    ```
-6. **Ouvrez une Pull Request** sur le repository principal
+6. Ouvrez une pull request sur le dépôt principal, en décrivant ce que vous changez et pourquoi.
 
-Décrivez clairement ce que vous changez et pourquoi dans la description de la PR.
+## Questions
 
-## Chantiers ouverts
-
-Vous cherchez une idée pour contribuer ? Ces chantiers sont en cours :
-
-- Enrichir le [Panorama](/docs/03_mutualiser/01_panorama.md) avec les projets manquants
-- Documenter les patterns de validation métier qui fonctionnent
-- Partager des cas types réutilisables entre projets similaires
-- Proposer des points réguliers entre équipes
-
-## Questions ?
-
-Vous ne savez pas par où commencer ? N'hésitez pas à ouvrir une [discussion ou issue](https://github.com/betagouv/aides-simplifiees-docs/issues) pour demander de l'aide.
+Pour savoir par où commencer, ouvrez une [issue](https://github.com/betagouv/aides-simplifiees-docs/issues).
 
 ## Licence
 
-En contribuant, vous acceptez que vos apports soient sous licence ouverte, en accord avec la license du projet.
+Vos contributions sont publiées sous la licence ouverte du projet.
