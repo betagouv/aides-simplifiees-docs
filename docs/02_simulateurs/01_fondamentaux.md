@@ -1,24 +1,37 @@
-# Fondamentaux
+# Principes de conception
 
-La conception d'un simulateur d'aides publiques repose sur un équilibre délicat entre rigueur juridique et simplicité d'usage. Cinq principes directeurs doivent guider chaque décision de conception : la **lisibilité** (toute règle doit être explicable), la **vérifiabilité** (chaque calcul doit être traçable jusqu'à sa source), la **maintenabilité** (le code doit évoluer au rythme du droit), l'**interopérabilité** (les modèles doivent être réutilisables) et l'**ouverture** (code et règles publiés par défaut).
+Un simulateur d'aides publiques concilie l'exactitude juridique et la simplicité d'usage. Cinq principes guident sa conception :
+
+- lisibilité : chaque règle peut être expliquée ;
+- vérifiabilité : chaque calcul se relie à son texte source ;
+- maintenabilité : le modèle suit les évolutions du droit ;
+- interopérabilité : les modèles sont réutilisables par d'autres services ;
+- ouverture : code et règles sont publiés.
+
+## Valeur d'un résultat de simulation
+
+Un simulateur donne une estimation. Son résultat n'engage pas l'administration : le simulateur de l'impôt sur le revenu de la DGFiP le présente comme indicatif, et mesdroitssociaux.gouv.fr parle de « droits potentiels » avant de renvoyer vers l'organisme compétent. Seule une prise de position formelle de l'administration, comme le rescrit (article L. 80 B du livre des procédures fiscales, article L. 312-3 du code des relations entre le public et l'administration), est opposable.
+
+La simulation sert à informer l'usager et à lui permettre d'anticiper un changement de situation (déménagement, naissance, reprise d'emploi) avant toute démarche. Le texte affiché avec le résultat dit ce qu'il vaut.
 
 ## Données personnelles et minimisation
 
-Les simulateurs manipulent par nature des données sensibles (revenus, santé, situation familiale). Le RGPD impose un principe de minimisation stricte : ne collecter que les données indispensables au calcul.
+Les simulateurs manipulent des données sensibles : revenus, santé, situation familiale. Le RGPD impose la minimisation : ne collecter que les données indispensables au calcul.
 
-Trois architectures de données sont envisageables :
-*   **La simulation anonyme** (ex: *mon-entreprise*) : Le calcul s'effectue intégralement dans le navigateur de l'usager. Aucune donnée ne transite par un serveur, garantissant une confidentialité absolue "by design".
-*   **Le pré-remplissage éphémère** : Les données sont récupérées via FranceConnect ou l'API Particulier pour faciliter la saisie, utilisées pour le calcul à la volée, puis immédiatement oubliées sans stockage persistant.
-*   **La sauvegarde temporaire** : Un stockage chiffré permet à l'usager d'interrompre et de reprendre son parcours, mais introduit des contraintes de sécurité et de durée de conservation plus lourdes.
+Trois architectures de données sont possibles :
 
-L'usage de FranceConnect et de l'API Particulier offre un gain d'ergonomie majeur en évitant la ressaisie, mais il exige une habilitation administrative et une gestion fine des cas d'erreur ou de refus de consentement.
+- La simulation anonyme calcule dans le navigateur de l'usager, comme mon-entreprise : les données saisies restent sur son appareil.
+- Le pré-remplissage éphémère récupère les données par FranceConnect ou l'API Particulier pour faciliter la saisie, les utilise pour le calcul, puis les efface.
+- La sauvegarde temporaire chiffre les réponses pour que l'usager interrompe et reprenne son parcours ; elle impose des règles de sécurité et une durée de conservation.
+
+FranceConnect et l'API Particulier évitent à l'usager de ressaisir ses informations. Ils demandent une habilitation administrative et le traitement des erreurs et des refus de consentement.
 
 ## Accessibilité et inclusion
 
-L'accessibilité (RGAA) est une obligation légale pour tout service public numérique. Les simulateurs présentent des défis spécifiques en la matière, notamment les formulaires dynamiques où l'apparition de nouvelles questions peut désorienter les lecteurs d'écran. L'usage de régions `aria-live` et une gestion rigoureuse du focus sont indispensables.
+L'accessibilité (RGAA) est une obligation légale pour tout service public numérique. Dans un formulaire dynamique, l'apparition de nouvelles questions désoriente les utilisateurs de lecteurs d'écran : les régions `aria-live` et la gestion du focus y répondent.
 
-Au-delà de l'accessibilité technique, l'inclusion passe par la clarté du langage. Une question trop précise ("Quel est votre RFR N-2 ?") améliore la justesse du calcul mais peut provoquer l'abandon par incompréhension ou méfiance. La transparence pédagogique, expliquer pourquoi une donnée est demandée et comment elle influence le résultat, est le meilleur levier pour instaurer la confiance.
+L'inclusion passe aussi par un langage clair. Une question trop précise (« Quel est votre revenu fiscal de référence N-2 ? ») améliore la justesse du calcul et fait abandonner des usagers qui ne comprennent pas ou se méfient. Expliquer pourquoi une donnée est demandée et comment elle influence le résultat aide l'usager à répondre.
 
-## L'approche interdisciplinaire
+## Une équipe pluridisciplinaire
 
-Un simulateur réussi est le produit de la convergence de plusieurs expertises, notamment : le **juridique** (qui interprète la norme), le **design** (qui conçoit l'interaction) et la **technique** (qui implémente la logique). Pour aligner la logique du droit avec la logique de l'usager, il est crucial de faire dialoguer au plus tôt ces différents profils, dès la phase de modélisation, pour définir un vocabulaire commun (glossaire), formaliser des cas types partagés et documenter les arbitrages d'interprétation.
+Un simulateur réunit trois compétences : le droit, pour interpréter la règle ; le design, pour concevoir l'interaction ; la technique, pour écrire le modèle. Ces profils travaillent ensemble dès la modélisation, pour établir un glossaire commun, écrire des cas types partagés et documenter les choix d'interprétation.

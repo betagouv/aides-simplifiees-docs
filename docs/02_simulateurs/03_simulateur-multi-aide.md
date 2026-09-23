@@ -1,46 +1,46 @@
 # Concevoir un simulateur multi-aide
 
-Le passage d'un simulateur mono-aide à un outil multi-aides introduit une complexité exponentielle. Il s'agit de faire cohabiter des logiques administratives hétérogènes (CAF, Région, État) au sein d'un parcours unifié pour l'usager.
+Un simulateur multi-aide réunit dans un même parcours des aides de plusieurs organismes (CAF, région, État), dont les règles sont écrites chacune selon sa propre logique. Chaque aide ajoutée multiplie les définitions à rapprocher, les interactions entre aides et les questions à poser.
 
-## Le périmètre : un choix structurant
+## Quatre périmètres de simulateur
 
-Avant même de modéliser, il faut définir l'ambition du simulateur. L'écosystème présente quatre configurations types, chacune avec ses propres défis de gouvernance :
+Le périmètre se choisit avant la modélisation. Chacun demande une organisation différente de la validation :
 
-*   **Le simulateur mono-aide** (ex: *APL*) : Le périmètre est clair, l'expert métier est unique. La validation est "simple".
-*   **Le bouquet mono-porteur** (ex: *mes-aides-reno*) : Regroupe 5 à 20 aides d'un même organisme (ANAH). La cohérence des données est naturelle.
-*   **Le thématique multi-porteurs** : Agrège des aides de sources variées (CAF, Action Logement, Départements) autour d'un moment de vie. Le défi est d'obtenir une validation métier coordonnée entre plusieurs experts.
-*   **L'exhaustif** (ex: *1jeune1solution*) : Rassemble les aides de nombreux organismes pour un même public. Ici, la validation "aide par aide" devient impossible ; il faut changer de méthode et passer à une logique de contribution distribuée.
+- Un simulateur mono-aide, comme celui de l'APL, a un périmètre clair et un seul expert métier.
+- Un ensemble d'aides d'un même organisme, comme mes-aides-reno avec les aides de l'Anah, partage les mêmes données.
+- Un simulateur thématique réunit des aides de plusieurs organismes (CAF, Action Logement, départements) autour d'un moment de vie : déménagement, naissance, création d'entreprise. Les aides sont organisées comme l'usager vit sa situation. Leur validation demande de coordonner plusieurs experts.
+- Un simulateur à large périmètre, comme 1jeune1solution, rassemble les aides de nombreux organismes pour un même public. La validation aide par aide y est impossible : elle passe par une contribution répartie entre les organismes.
 
-## 1. Harmoniser la sémantique (variables)
+## Définitions divergentes d'une même donnée
 
-La difficulté majeure réside dans les **conflits de définitions**. Chaque dispositif a sa propre conception de la réalité. La notion de "revenu", par exemple, diffère subtilement entre le RSA (ressources trimestrielles perçues), les aides au logement (ressources des douze derniers mois, actualisées tous les trois mois) et une aide régionale (revenu fiscal ou net imposable).
+La principale difficulté vient des définitions. La notion de revenu diffère entre le RSA (ressources trimestrielles perçues), les aides au logement (ressources des douze derniers mois, actualisées tous les trois mois) et une aide régionale (revenu fiscal ou net imposable).
 
-Deux stratégies s'offrent au concepteur :
-*   **L'union stricte** : Poser chaque question spécifiquement ("Quel est votre RFR ?", "Quels sont vos revenus nets ?"). Cela garantit la précision juridique mais alourdit considérablement le parcours.
-*   **L'harmonisation** : Définir une variable pivot (ex: "Revenus mensuels moyens") et l'utiliser pour approximer les critères de chaque aide. Cela fluidifie l'expérience mais introduit une marge d'erreur qu'il faut documenter.
+Deux stratégies sont possibles :
 
-## 2. Résoudre les interactions (règles)
+- L'union stricte pose une question par définition (« Quel est votre revenu fiscal de référence ? », « Quels sont vos revenus nets ? »). Elle respecte chaque définition juridique et allonge le parcours.
+- L'harmonisation définit une variable commune, par exemple « Revenus mensuels moyens », et en déduit une valeur approchée pour chaque aide. Elle réduit le nombre de questions et introduit une marge d'erreur, à documenter.
 
-Les aides ne sont pas indépendantes ; elles interagissent selon des logiques qu'il faut anticiper :
+Dans les deux cas, documenter la définition employée par chaque aide rend les écarts visibles avant toute harmonisation.
 
-*   **Exclusivité (non-cumul)** : Certaines aides s'excluent mutuellement (ex: APL, ALF et ALS, une seule aide au logement par logement). Le simulateur doit soit arbitrer automatiquement pour la plus favorable, soit présenter le choix à l'usager.
-*   **Dépendance en cascade** : Le montant d'une aide A peut entrer dans la base ressources d'une aide B. L'ordre de calcul devient alors critique et doit être modélisé dans le graphe de dépendances.
-*   **Conditions contradictoires** : Des critères d'âge ou de statut peuvent s'exclure mutuellement, rendant certains profils théoriquement impossibles.
+## Non-cumul et dépendances entre aides
 
-## 3. Arbitrer le parcours (UX)
+Les aides interagissent de trois façons :
 
-Dans un contexte multi-aides, la tentation est grande de vouloir couvrir tous les cas particuliers ("edge cases"). Cependant, chaque exception réglementaire ajoute potentiellement une question au formulaire.
+- Certaines s'excluent : APL, ALF et ALS, une seule aide au logement par logement. Le simulateur retient la plus favorable ou présente le choix à l'usager.
+- Le montant d'une aide A peut entrer dans la base ressources d'une aide B. L'ordre de calcul se modélise alors dans le graphe de dépendances.
+- Des critères d'âge ou de statut peuvent se contredire, et rendre certains profils impossibles.
 
-La conception du parcours devient un exercice d'optimisation sous contrainte : comment maximiser la précision du calcul tout en minimisant le nombre de questions ?
-*   **Exhaustivité vs fluidité** : Faut-il poser une question qui ne concerne que 1% des usagers mais conditionne une aide importante ?
-*   **Langage clair vs juridique** : Simplifier "État matrimonial légal" en "Vivez-vous en couple ?" améliore la compréhension mais introduit un flou juridique.
+## Nombre de questions et précision du calcul
 
-Il n'y a pas de réponse unique. Ces arbitrages doivent être documentés formellement.
+Chaque exception réglementaire peut ajouter une question au formulaire. Le parcours cherche le meilleur calcul avec le moins de questions possible :
+
+- Faut-il poser une question qui concerne 1 % des usagers, si elle conditionne une aide importante ?
+- Remplacer « État matrimonial légal » par « Vivez-vous en couple ? » améliore la compréhension et introduit une imprécision juridique.
+
+Ces choix se documentent, avec leur raison.
 
 ## Outils de conception et documentation
 
-Pour maîtriser cette complexité, il est indispensable de s'outiller :
-
-*   **Matrices de variables** : Tableau croisé recensant toutes les variables demandées par chaque aide, pour identifier les doublons et les opportunités de fusion.
-*   **Graphes de dépendances** : Visualisation des liens de calcul entre les aides.
-*   **ADR (Architecture Decision Records)** : Les choix d'harmonisation (ex: "Nous utilisons le RFR N-1 pour toutes les aides régionales") doivent être tracés dans des ADRs. C'est la mémoire du projet qui permet d'expliquer les écarts de calcul futurs.
+- Une matrice des variables croise les variables demandées par chaque aide, pour repérer les doublons et les fusions possibles.
+- Un graphe de dépendances montre les liens de calcul entre les aides.
+- Un registre de décisions (ADR, *Architecture Decision Record*) consigne chaque choix d'harmonisation, par exemple « Le revenu fiscal de référence N-1 sert pour toutes les aides régionales ». Il explique ensuite les écarts de calcul.

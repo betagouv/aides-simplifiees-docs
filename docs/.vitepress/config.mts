@@ -7,7 +7,7 @@ import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 
 export default defineConfig({
   title: "Guide de la réglementation opérable",
-  description: "Documentation technique et méthodologique pour la modélisation et la simulation des aides publiques",
+  description: "Méthodes et outils pour modéliser, tester et maintenir les règles de calcul des aides publiques",
   lang: 'fr-FR',
   base: '/',
   markdown: {
@@ -44,14 +44,14 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Guide des simulateurs',
+        text: 'Concevoir un simulateur',
         collapsed: false,
         items: [
           { text: 'Vue d\'ensemble', link: '/02_simulateurs/' },
-          { text: 'Fondamentaux', link: '/02_simulateurs/01_fondamentaux' },
+          { text: 'Principes de conception', link: '/02_simulateurs/01_fondamentaux' },
           { text: 'Modéliser une aide', link: '/02_simulateurs/02_modeliser-une-aide' },
           { text: 'Simulateur multi-aide', link: '/02_simulateurs/03_simulateur-multi-aide' },
-          { text: 'Passer en code', link: '/02_simulateurs/05_passer-en-code' },
+          { text: 'Écrire le modèle de règles', link: '/02_simulateurs/05_passer-en-code' },
           { text: 'Tester et ajuster', link: '/02_simulateurs/06_tester-ajuster' },
           { text: 'Maintenir', link: '/02_simulateurs/07_maintenir' }
         ]
