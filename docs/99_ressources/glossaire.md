@@ -1,62 +1,56 @@
 # Glossaire
 
-Ce glossaire rassemble les notions, acronymes et références employés dans la documentation.  
-Il a pour vocation de **clarifier le vocabulaire commun** aux métiers du droit, du numérique et de la conception de services publics.
+Ce glossaire définit les notions, acronymes et références employés dans la documentation, pour les métiers du droit, du numérique et de la conception de services publics.
 
 ## A
 
 ### ADR (Architecture Decision Record)
-Document qui enregistre une décision architecturale importante, son contexte, les alternatives considérées et les conséquences. Permet de capitaliser les choix techniques et de faciliter l'intégration de nouveaux membres.
-
+Document qui enregistre une décision d'architecture, son contexte, les options considérées et leurs conséquences. Les ADR gardent la trace des choix techniques pour les personnes qui rejoignent le projet.
 
 ### Aide publique
-Mesure financière, fiscale ou sociale accordée par une autorité publique (État, collectivité, opérateur) selon des conditions d'éligibilité. Une aide peut être monétaire, en nature ou sous forme d'exonération.
+Mesure financière, fiscale ou sociale accordée par une autorité publique (État, collectivité, opérateur) selon des conditions d'éligibilité. Une aide peut être monétaire, en nature ou prendre la forme d'une exonération.
 
 ### Algorithme
-Suite d'instructions logiques permettant d'exécuter un calcul déterminé. Dans un simulateur, l'algorithme traduit une règle de droit en opération mathématique ou logique.
+Suite d'instructions qui exécute un calcul déterminé. Dans un simulateur, l'algorithme applique une règle de droit sous forme d'opérations mathématiques ou logiques.
 
 ### API (Application Programming Interface)
-Interface permettant à différents logiciels de communiquer entre eux. Dans notre contexte, permet d'intégrer les calculs d'éligibilité dans d'autres services.
+Interface par laquelle deux logiciels échangent des données. Une API de calcul reçoit une situation et renvoie les résultats d'éligibilité et les montants.
 
 ## B
 
 ### Barème
-Tableau ou formule qui détermine un montant d'aide selon un ou plusieurs critères (revenus, nombre d'enfants, situation géographique).
-Exemple : le barème APL selon la zone et les ressources du foyer.
+Tableau ou formule qui donne le montant d'une aide selon un ou plusieurs critères (revenus, nombre d'enfants, lieu). Exemple : le barème de l'APL selon la zone et les ressources du foyer.
 
 ## C
 
 ### Calcul
-Processus d'opérations mathématiques par laquelle les conditions d'accès à une aide sont évaluées pour un usager. Il peut être binaire (éligible / non éligible) ou graduel (montant ajusté selon un barème).
+Opérations qui évaluent les conditions d'accès à une aide pour un usager. Le résultat est binaire (éligible ou non éligible) ou gradué (montant ajusté selon un barème).
 
 ### Cas type
-Situation représentative définie avec les experts métier, servant à la fois de spécification fonctionnelle et de test. Contrairement aux tests unitaires, les cas types sont exprimés dans un langage compréhensible par des non-développeurs. Voir aussi : Fixtures métier.
-
-### CI/CD (Continuous Integration / Continuous Deployment)
-Pratiques d'intégration et de déploiement continu permettant d'automatiser les tests, la construction et la mise à jour du code.
-
-### Commun numérique
-Ressource logicielle, documentaire ou méthodologique ouverte, réutilisable et gouvernée collectivement.  
-
-### Critères d'éligibilité
-Conditions à remplir pour pouvoir bénéficier d'une aide publique (âge, revenus, situation familiale, etc.).
+Situation représentative définie avec les experts métier : un profil d'usager et le résultat attendu. Le cas type spécifie le comportement attendu et s'exécute comme test de non-régression. Il est écrit dans une langue lisible par des non-développeurs, et sa provenance est indiquée : cas construit, exemple de circulaire, dossier réel anonymisé.
 
 ### Catala
-Langage de programmation littéraire développé par l'INRIA, où le texte de loi et le code coexistent dans le même document, avec preuve formelle de couverture. Voir [Outils et briques réutilisables](/03_mutualiser/02_outils).
+Langage de programmation littéraire développé par Inria : le texte de loi et le code qui l'applique sont écrits dans le même document, et le compilateur vérifie le code et ses tests. Voir [Outils réutilisables](/03_mutualiser/02_outils).
+
+### CI/CD (Continuous Integration / Continuous Deployment)
+Intégration et déploiement continus : les tests, la construction et la mise en ligne du code s'exécutent automatiquement à chaque modification.
+
+### Commun numérique
+Ressource logicielle, documentaire ou méthodologique ouverte, réutilisable et gouvernée collectivement.
+
+### Critères d'éligibilité
+Conditions à remplir pour bénéficier d'une aide publique : âge, revenus, situation familiale.
 
 ## D
 
-### Dispatcher
-Fonction qui transforme une réponse utilisateur en une ou plusieurs variables du moteur de calcul. Exemple : "alternance" devient `{alternant: true}`. Voir [Patterns architecturaux](/03_mutualiser/03_patterns).
-
 ### Dispositif (réglementaire)
-Ensemble cohérent de règles juridiques visant à réguler une situation particulière ou produire un effet juridique précis. Exemple : l'aide personnalisée au logement.
+Ensemble de règles juridiques qui régit une situation ou produit un effet juridique précis. Exemple : l'aide personnalisée au logement.
 
 ### DMN (Decision Model and Notation)
-Standard de modélisation des règles métier permettant de représenter la logique de décision de manière visuelle et exécutable.
+Standard de modélisation des règles métier, qui représente une logique de décision sous forme de tables et de diagrammes exécutables.
 
-### DSFR (Design System de l'État)
-Système de design officiel de l'État français, garantissant la cohérence visuelle et l'accessibilité des services publics numériques.
+### DSFR (Système de design de l'État)
+Système de design officiel de l'État français, pour la cohérence visuelle et l'accessibilité des services publics numériques.
 
 ## E
 
@@ -64,121 +58,115 @@ Système de design officiel de l'État français, garantissant la cohérence vis
 Fait de remplir les conditions requises pour bénéficier d'une aide ou d'un service public.
 
 ### Entité
-Objet de calcul dans un moteur de règles (ex. : *individu*, *foyer*, *logement*).  
-Chaque variable est rattachée à une entité pour structurer les dépendances.
+Objet de calcul dans un moteur de règles, par exemple l'individu, la famille, le foyer fiscal ou le ménage dans OpenFisca. Chaque variable se rattache à une entité.
 
 ### Expert métier
-Personne disposant d'une connaissance approfondie d'un domaine réglementaire (juriste, agent CAF, conseiller France Travail, etc.). Dans un projet de simulateur, l'expert métier valide les interprétations et les cas types.
+Personne qui connaît un domaine réglementaire : juriste, agent de la CAF, conseiller France Travail. Dans un projet de simulateur, l'expert métier valide les interprétations et les cas types.
 
 ## F
 
-### Fixtures métier
-Cas types représentatifs définis avec les experts, servant à la fois de spécification fonctionnelle et de test de non-régression. Contrairement aux tests unitaires techniques, les fixtures métier sont lisibles par des non-développeurs et traçables vers des situations réelles.
+### Fonction de conversion
+Fonction qui transforme une réponse de l'usager en une ou plusieurs variables du moteur de règles. Exemple : la réponse « alternance » devient `{alternant: true}`. Voir [Patterns architecturaux](/03_mutualiser/03_patterns).
 
 ## L
 
 ### Liquidateur
-Système informatique utilisé par une administration pour calculer et attribuer automatiquement des prestations. Se distingue d'un simulateur par son caractère opérationnel.
+Système informatique qu'une administration utilise pour calculer et attribuer les prestations. Le liquidateur calcule les droits réels ; le simulateur donne une estimation. Les liquidateurs sont des moteurs de règles internes aux systèmes d'information des administrations.
 
 ## M
 
-### Mapping (couche de)
-Transformation entre les réponses utilisateur et les variables du moteur de calcul. Peut être directe (Publicodes), légère (formatters) ou complexe (builders, dispatchers).
-
 ### Modèle (de règles)
-Représentation formalisée et structurée des règles d'attribution d'une aide, permettant leur implémentation informatique.
+Représentation formalisée des règles d'attribution d'une aide, écrite pour un moteur de règles.
 
 ### Moteur de règles
-Logiciel spécialisé dans l'exécution de règles métier formalisées. Exemples : OpenFisca, Publicodes.
+Logiciel qui exécute des règles formalisées. Les administrations emploient des moteurs internes à leurs systèmes d'information (voir [Liquidateur](#liquidateur)) et des plateformes commerciales. Les moteurs ouverts, publiés en open source, sont ceux que décrit cette documentation : OpenFisca, Publicodes, Catala.
 
-### Multi-moteur
-Architecture permettant à un même formulaire ou schéma de questionnaire d'alimenter plusieurs moteurs de règles (Publicodes, OpenFisca, custom). Cette approche favorise le découplage entre l'interface utilisateur et la logique de calcul.
+### Moteur ouvert
+Moteur de règles publié en open source, dont le code et les modèles de règles sont consultables et réutilisables.
 
 ## P
 
-### @publicodes/forms
-Bibliothèque JavaScript permettant de générer automatiquement des formulaires à partir de règles Publicodes.
-
 ### Personal Regulation Assistant (PRA)
-Concept d'assistant numérique personnel capable d'analyser la situation d'un individu au regard de multiples réglementations pour l'informer de ses droits et obligations.
+Assistant numérique qui analyse la situation d'une personne au regard de plusieurs réglementations, pour l'informer de ses droits et obligations. Thème d'un projet pilote européen lancé en 2025 avec la Grèce et les Pays-Bas.
 
 ### Publicodes
-Moteur de règles open source développé par beta.gouv.fr, privilégiant la lisibilité et la facilité de contribution par des non-techniques.
+Langage de règles en YAML, avec des noms de règles en français, créé par l'équipe de mon-entreprise et exécuté par un moteur JavaScript, qui génère la documentation de chaque calcul.
+
+### @publicodes/forms
+Bibliothèque JavaScript qui convertit des règles Publicodes en formulaire interactif.
+
+## Q
+
+### Questionnaire déclaratif
+Description d'un questionnaire dans un fichier (JSON, YAML) : questions, ordre, conditions d'affichage et validations. L'interface se génère depuis ce fichier.
 
 ## R
 
-### Registre d'interprétations
-Document traçant les décisions prises lorsqu'un texte réglementaire est ambigu. Chaque interprétation est justifiée, datée et validée par un expert, permettant de comprendre pourquoi le simulateur se comporte d'une certaine manière.
+### Registre des interprétations
+Fichier versionné avec le modèle, qui consigne les choix faits quand un texte réglementaire est ambigu. Chaque interprétation y est justifiée, datée et validée par un expert, ce qui explique le comportement du simulateur.
 
 ### Réglementation opérable
-Champ de transformation de la législation en artefacts numériques lisibles par les humains, exécutables par les machines et gouvernables collectivement. Englobe les moteurs de calcul (*Rules as Code*), mais aussi les jeux de tests partagés, la documentation vivante, la couche de traduction formulaire–moteur et le balisage des textes sources. Voir [La réglementation opérable](/00_introduction/reglementation-operable).
+Ensemble du travail qui rend une règle de droit exécutable et vérifiable : l'écriture de la règle dans un langage formel (*Rules as Code*), les cas types, la documentation, la conversion des réponses en variables et les références aux textes. Voir [La réglementation opérable](/00_introduction/reglementation-operable).
 
 ### Règle (réglementaire)
-Portion d'un texte réglementaire identifiable comme une instruction précise émise par les législateurs. Exemple : "condition d'âge pour l'éligibilité à l'APL en location".
+Partie d'un texte réglementaire identifiable comme une instruction précise du législateur. Exemple : la condition d'âge pour bénéficier de l'APL en location.
 
 ### Rules as Code
-Approche consistant à traduire directement les règles juridiques en code informatique, permettant leur application automatisée tout en maintenant la traçabilité vers les sources légales.
+Écriture des règles juridiques dans un langage formel exécutable par les machines, en même temps que leur rédaction juridique ou à partir des textes en vigueur, avec un lien vers les sources légales.
 
 ## S
 
 ### Simulateur
-Outil permettant à un utilisateur d'estimer son éligibilité et le montant potentiel d'une ou plusieurs aides publiques, à partir de la description de sa situation.
-
-### Schema de questionnaire
-Format de description déclarative d'un questionnaire, indépendant du moteur de calcul. Permet de définir les questions, leur ordre, les conditions d'affichage et les validations sans coder l'interface.
+Outil qui estime l'éligibilité et le montant d'une ou plusieurs aides publiques à partir de la situation décrite par l'usager. Son résultat est indicatif et n'engage pas l'administration.
 
 ## T
 
 ### Texte réglementaire
-Document juridique officiel (loi, décret, arrêté, circulaire) définissant les règles d'attribution et de calcul d'une aide publique.
+Document juridique officiel (loi, décret, arrêté, circulaire) qui définit les règles d'attribution et de calcul d'une aide publique.
 
 ### Traçabilité
-Capacité à relier chaque élément de l'interface (question, résultat) à sa source réglementaire et aux variables du moteur de calcul.
+Lien entre chaque élément de l'interface (question, résultat), les variables du moteur de règles et l'article de loi appliqué.
 
 ## V
 
 ### Validation métier
-Processus par lequel un expert du domaine vérifie que le modèle informatique reflète correctement la réglementation. Distinct des tests techniques, la validation métier porte sur la conformité au droit, pas sur l'absence de bugs.
+Vérification par un expert du domaine que le modèle applique correctement la réglementation. La validation métier porte sur la conformité au droit, les tests techniques sur le fonctionnement du code.
 
 ### Variable
-Élément d'information nécessaire au calcul d'une aide (âge, revenus, type de logement, etc.). Peut être :
-- **Variable d'entrée** : saisie par l'utilisateur
-- **Variable calculée** : résultat d'un calcul intermédiaire  
-- **Variable de référence** : valeur de barème officiel
+Information nécessaire au calcul d'une aide. On distingue :
+
+- la variable d'entrée, fournie par l'usager ou par une API ;
+- la variable de référence, valeur fixée par la réglementation ;
+- la variable intermédiaire, calculée à partir d'autres variables ;
+- la variable de sortie, résultat du calcul.
 
 ## Acronymes courants
 
-- **ADR** (Architecture Decision Record) : document de décision architecturale
-- **APL** (Aide Personnalisée au Logement) : aide au logement calculée selon les revenus et le loyer
-- **CAF** (Caisse d'Allocations Familiales) : organisme versant de nombreuses aides sociales
-- **CI/CD** (Continuous Integration/Continuous Deployment) : pratiques d'automatisation du développement
-- **DSFR** (Design System de l'État Français) : système de design officiel de l'État
-- **E2E** (End-to-End) : tests de bout en bout simulant le parcours utilisateur
-- **ELI** (European Legislation Identifier) : standard d'identification pérenne des textes législatifs européens
-- **RaC** (Rules as Code) : approche de traduction des règles juridiques en code exécutable
-- **RSA** (Revenu de Solidarité Active) : aide garantissant un revenu minimum
-- **UX** (User Experience) : expérience utilisateur, qualité d'usage d'un service
+- ADR (*Architecture Decision Record*), registre de décision d'architecture
+- APL (aide personnalisée au logement), aide au logement calculée selon les ressources et le loyer
+- CAF (caisse d'allocations familiales), organisme qui verse de nombreuses aides sociales
+- CI/CD (*Continuous Integration / Continuous Deployment*), intégration et déploiement continus
+- DSFR (Système de design de l'État)
+- E2E (*End-to-End*), tests de bout en bout qui simulent le parcours de l'usager
+- ELI (*European Legislation Identifier*), identifiant stable des textes législatifs publiés au Journal officiel
+- LEGIARTI, identifiant d'un article de code dans une version donnée, sur Légifrance
+- RaC (*Rules as Code*)
+- RSA (revenu de solidarité active), revenu minimum
+- UX (*User Experience*), expérience utilisateur
 
 ## Ressources complémentaires
 
-### Documentation technique
-- [OpenFisca](https://openfisca.org/) : Moteur de règles pour la fiscalité et les prestations sociales
-- [Publicodes](https://publi.codes/) : Moteur de règles orienté contribution collaborative
+- [OpenFisca](https://openfisca.org/), moteur de règles pour la fiscalité et les prestations sociales
+- [Publicodes](https://publi.codes/), langage de règles et son moteur JavaScript
+- [Légifrance](https://www.legifrance.gouv.fr/), service public de diffusion du droit
+- [Service-public.fr](https://www.service-public.fr/), information officielle sur les droits et les démarches
+- [Guide des algorithmes publics](https://etalab.github.io/algorithmes-publics/guide.html), guide d'Etalab pour les administrations
+- [Cracking the Code](https://oecd-opsi.org/publications/cracking-the-code/), rapport de l'OCDE sur le *Rules as Code*
 
-### Références juridiques
-- [Légifrance](https://www.legifrance.gouv.fr/) : Service public de diffusion du droit français
-- [Service-public.fr](https://www.service-public.fr/) : Information officielle sur les droits et démarches
-
-### Méthodologie
-- [Guide des algorithmes publics](https://etalab.github.io/algorithmes-publics/guide.html) : Bonnes pratiques pour l'administration
-- [Rules as Code](https://oecd-opsi.org/publications/cracking-the-code/) : Approche internationale (OCDE)
-
-::: tip Contribution
-Ce glossaire est évolutif. N'hésitez pas à proposer des ajouts ou corrections via [notre dépôt GitHub](https://github.com/betagouv/aides-simplifiees-docs).
-:::
+Les ajouts et corrections se proposent sur le [dépôt GitHub](https://github.com/betagouv/aides-simplifiees-docs).
 
 ## Voir aussi
 
 - [Historique des simulateurs publics](/99_ressources/historique)
-- [Guide complet des simulateurs](/02_simulateurs/)
+- [Concevoir un simulateur](/02_simulateurs/)
 - [La réglementation opérable](/00_introduction/reglementation-operable)
