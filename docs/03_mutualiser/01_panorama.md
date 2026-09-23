@@ -1,32 +1,38 @@
 # Panorama des simulateurs publics ouverts
 
-L'écosystème des simulateurs publics ouverts, porté principalement par la communauté beta.gouv.fr et ses partenaires, regroupe plusieurs dizaines de produits numériques. Au-delà de leur diversité thématique, ces projets se structurent autour de deux paradigmes technologiques majeurs qui reflètent des philosophies de modélisation distinctes.
+Les équipes de beta.gouv.fr et de ses partenaires ont publié plusieurs dizaines de simulateurs publics au code ouvert. Cette page en présente une sélection, classée selon le moteur de calcul utilisé.
 
-## Les écosystèmes technologiques
+## Projets classés par moteur
 
-### L'écosystème Publicodes : lisibilité et web-first
-Une partie des simulateurs utilisent Publicodes. Ce choix privilégie l'explicabilité des règles et l'exécution côté client (navigateur), favorisant une expérience utilisateur fluide et une contribution ouverte aux non-développeurs.
-*   **[mon-entreprise](https://beta.gouv.fr/startups/mon-entreprise.html)** : Le projet fondateur du langage, référence pour les calculs de cotisations et statuts.
-*   **[nosgestesclimat](https://github.com/incubateur-ademe/nosgestesclimat)** : Calculateur d'empreinte carbone grand public, traduit en 5 langues.
-*   **[mes-aides-reno](https://beta.gouv.fr/startups/mesaidesreno.html)** : Modélisation complexe des aides à la rénovation énergétique (MaPrimeRénov').
-*   **[code-du-travail-numérique](https://beta.gouv.fr/startups/codedutravail.html)** : Utilise le moteur pour les calculs liés aux conventions collectives (préavis, indemnités).
+### Projets en Publicodes
 
-### L'écosystème OpenFisca : microsimulation socio-fiscale
-Une autre partie des projets s'appuie sur OpenFisca. Ce moteur Python est conçu pour gérer la complexité des systèmes socio-fiscaux (foyers, ménages, temporalités glissantes) et s'exécute côté serveur.
-*   **[aides-jeunes](https://beta.gouv.fr/startups/aides.jeunes.html)** : Agrégateur d'aides pour les moins de 30 ans, avec un CMS pour la contribution.
-*   **[leximpact](https://beta.gouv.fr/startups/leximpact.html)** : Outil de simulation législative pour l'Assemblée nationale et le Sénat.
-*   **[estime](https://beta.gouv.fr/startups/estime.html)** & **[mes-ressources-formation](https://beta.gouv.fr/startups/estime.formation.html)** : Outils de France Travail pour sécuriser les parcours de reprise d'activité.
+Ces projets calculent en général dans le navigateur et publient la documentation interactive de leurs règles.
 
-### Les approches ad-hoc
-Certains projets nécessitent des architectures spécifiques qui ne cadrent pas avec les moteurs génériques, souvent pour des raisons de couplage fort avec des données externes.
-*   **[envergo](https://beta.gouv.fr/startups/envergo.html)** : Évaluation environnementale basée sur des croisements géographiques (PostGIS).
-*   **[terristory](https://beta.gouv.fr/startups/terri-story.html)** : Analyse territoriale mêlant calculs statistiques et machine learning.
-*   **[pacoupa](https://beta.gouv.fr/startups/pacoupa.html)** : Moteur de recommandation basé sur une base de données produits (SQLite/Zod).
+- [mon-entreprise](https://beta.gouv.fr/startups/mon-entreprise.html) : le projet où Publicodes a été créé, pour les cotisations sociales et les statuts d'entreprise.
+- [nosgestesclimat](https://github.com/incubateur-ademe/nosgestesclimat) : calculateur d'empreinte carbone individuelle.
+- [mes-aides-reno](https://beta.gouv.fr/startups/mesaidesreno.html) : aides à la rénovation énergétique, dont MaPrimeRénov'.
+- [code-du-travail-numérique](https://beta.gouv.fr/startups/codedutravail.html) : calculs liés aux conventions collectives (préavis, indemnités).
+
+### Projets en OpenFisca
+
+Ces projets calculent sur un serveur, avec les entités et les périodes du système socio-fiscal (individu, famille, foyer fiscal, ménage).
+
+- [aides-jeunes](https://beta.gouv.fr/startups/aides.jeunes.html) : aides pour les moins de 30 ans, avec un outil d'édition des fiches d'aides.
+- [leximpact](https://beta.gouv.fr/startups/leximpact.html) : simulation de réformes pour l'Assemblée nationale et le Sénat.
+- [estime](https://beta.gouv.fr/startups/estime.html) et [mes-ressources-formation](https://beta.gouv.fr/startups/estime.formation.html) : outils de France Travail pour estimer les ressources lors d'une reprise d'activité ou d'une formation.
+
+### Projets avec un calcul propre
+
+Certains projets calculent avec leur propre code, lié à des données externes :
+
+- [envergo](https://beta.gouv.fr/startups/envergo.html) : évaluation environnementale par croisements géographiques (PostGIS).
+- [terristory](https://beta.gouv.fr/startups/terri-story.html) : analyse territoriale, avec calculs statistiques et apprentissage automatique.
+- [pacoupa](https://beta.gouv.fr/startups/pacoupa.html) : recommandations à partir d'une base de données de produits (SQLite, Zod).
 
 ## Couverture thématique
 
-*   **Aides sociales** : *aides-jeunes, tous-a-bord* (transports), *estime*.
-*   **Fiscalité & Entreprise** : *mon-entreprise, portail-rse, leximpact*.
-*   **Transition écologique** : *mes-aides-reno, nosgestesclimat, impact-co2, envergo*.
-*   **Droit & Justice** : *code-du-travail-numérique, a-just* (aide à la décision tribunaux).
-*   **Territoires** : *aides-agri, terristory, sparte* (artificialisation des sols).
+- Aides sociales : aides-jeunes, tous-a-bord (transports), estime.
+- Fiscalité et entreprises : mon-entreprise, portail-rse, leximpact.
+- Transition écologique : mes-aides-reno, nosgestesclimat, impact-co2, envergo.
+- Droit et justice : code-du-travail-numérique, a-just (aide à la décision pour les juridictions).
+- Territoires : aides-agri, terristory, sparte (artificialisation des sols).

@@ -1,35 +1,33 @@
 # Patterns architecturaux
 
-Connecter un formulaire utilisateur à un moteur de règles est un choix d'architecture qui détermine la flexibilité du parcours, la maintenabilité du code et la traçabilité juridique des calculs. L'analyse des projets existants révèle trois tensions fondamentales qu'il convient d'arbitrer.
+Relier un formulaire à un moteur de règles engage trois choix d'architecture. Ils déterminent la liberté de conception du parcours, la maintenance du code et la possibilité de relier chaque calcul au texte.
 
-## Tension 1 : La source de vérité de l'interface
+## Générer le questionnaire depuis les règles ou le décrire à part
 
-La première décision concerne la définition du questionnaire : doit-il être une projection directe des règles ou un artefact autonome ?
+Le questionnaire peut se générer depuis le modèle de règles, comme dans mon-entreprise : si une règle demande la variable `revenu_fiscal`, le champ apparaît. Le formulaire demande alors exactement les données utiles au calcul, et son ordre suit la structure du modèle.
 
-**L'approche "Projection des règles"** (ex: *mon-entreprise*) consiste à générer l'interface directement depuis les métadonnées du modèle. Si une règle nécessite la variable `revenu_fiscal`, le champ apparaît. Cette méthode garantit une cohérence absolue : il est impossible de demander une donnée inutile ou d'oublier un paramètre. En contrepartie, elle contraint le design du parcours à la structure logique du calcul, limitant les possibilités d'optimisation UX pure.
+Le questionnaire peut aussi se décrire dans un fichier séparé des règles, en JSON ou en YAML. Les questions se reformulent et se réordonnent en modifiant ce fichier, pour concevoir des parcours pédagogiques. En contrepartie, une conversion relie les réponses aux variables du moteur, et le questionnaire et le modèle doivent être tenus en cohérence.
 
-**L'approche "Artefact autonome"** sépare la définition du formulaire (souvent un JSON ou YAML) de celle des règles. Cela offre une liberté totale pour concevoir des parcours pédagogiques, reformuler les questions ou changer l'ordre sans toucher au moteur. Le coût est la maintenance d'une couche de mapping et le risque de désynchronisation entre ce qui est demandé et ce qui est calculé.
+Une solution intermédiaire, employée par mes-aides-reno, prend les questions dans le modèle et fixe leur ordre et leur affichage dans un fichier de configuration.
 
-**L'approche "Filtre d'ordonnancement"** (ex: *mes-aides-reno*) tente un compromis : le moteur définit les questions possibles, mais un fichier de configuration externe pilote leur ordre et leur affichage, permettant d'ajuster l'expérience sans rompre le lien avec le modèle.
+## Calculer dans le navigateur ou sur un serveur
 
-## Tension 2 : Le lieu d'exécution (client vs serveur)
+Le lieu du calcul dépend souvent du moteur, et il a des effets sur la réactivité et la confidentialité.
 
-Le choix du moteur dicte souvent l'architecture d'exécution, avec des conséquences directes sur la performance et la confidentialité.
+Dans le navigateur, avec Publicodes par exemple, le calcul se refait à chaque réponse sans appel réseau. C'est utile aux simulateurs où l'usager fait varier ses réponses. Le modèle se charge en entier au démarrage, ce qui ralentit l'ouverture pour les modèles de grande taille. Les données saisies restent sur l'appareil de l'usager.
 
-**L'exécution côté client** (Publicodes) déporte la logique dans le navigateur de l'usager. L'interaction est instantanée (zéro latence réseau), ce qui est crucial pour les simulateurs exploratoires où l'utilisateur ajuste des curseurs en temps réel. Cependant, cela impose de charger l'intégralité du modèle au démarrage, ce qui peut peser sur les performances pour les bases de règles très volumineuses.
+Sur un serveur, avec OpenFisca par exemple, une API calcule. Ce choix convient aux modèles qui demandent beaucoup de calcul, ou qui utilisent des données protégées qui ne doivent pas être exposées au navigateur. Chaque calcul passe par le réseau, et les données personnelles transitent par le serveur, qu'il faut sécuriser.
 
-**L'exécution côté serveur** (OpenFisca) centralise le calcul via une API. C'est indispensable pour les modèles nécessitant une puissance de calcul importante ou l'accès à des données protégées qui ne doivent pas être exposées au client. Cette architecture introduit une latence réseau à chaque interaction et exige une vigilance accrue sur la sécurité des données personnelles qui transitent par le serveur.
+## Convertir les réponses en variables du moteur
 
-## Tension 3 : La complexité de la couche de mapping
+La conversion relie la réponse de l'usager (« Je suis en alternance ») à la variable du moteur (`contrat_travail = "apprentissage" | "professionnalisation"`).
 
-Le "mapping" est la traduction entre la réponse de l'utilisateur ("Je suis en alternance") et la variable du moteur (`contrat_travail = "apprentissage" | "professionnalisation"`).
+Quand le champ du formulaire a le même nom que la variable, la conversion est directe : le code est simple et chaque réponse se relie à la variable.
 
-Dans une **architecture couplée**, ce mapping est souvent implicite ou direct : le champ de formulaire porte le nom de la variable. La traçabilité est maximale, le code est simple.
+Quand le formulaire est décrit à part, des fonctions de conversion transforment les réponses. Elles déduisent plusieurs variables d'une seule réponse, ou convertissent des périodes (un revenu annuel saisi devient douze revenus mensuels). Ces fonctions contiennent des choix d'interprétation : elles se documentent et se testent comme le modèle lui-même.
 
-Dans une **architecture découplée**, une couche de transformation (dispatchers, formatters) est nécessaire. Elle permet de gérer des cas complexes, comme déduire plusieurs variables techniques d'une seule réponse simple, ou gérer des notions temporelles (convertir un revenu annuel saisi en 12 revenus mensuels). Cette flexibilité a un prix : la "boîte noire" du mapping devient un lieu critique où peuvent s'introduire des erreurs d'interprétation difficiles à auditer.
+## Choix selon le simulateur
 
-## Synthèse pour la décision
-
-*   Pour un simulateur pédagogique nécessitant une réactivité immédiate et une maintenance légère par des experts métier : privilégiez **Publicodes avec génération d'UI**.
-*   Pour un parcours multi-étapes complexe, nécessitant une UX très travaillée et intégrant plusieurs moteurs hétérogènes : optez pour un **formulaire autonome avec une couche de mapping explicite**.
-*   Pour des calculs socio-fiscaux lourds impliquant des foyers complexes : l'architecture **serveur OpenFisca** reste incontournable.
+- Simulateur pédagogique, réactif, maintenu par des experts métier avec l'aide de développeurs : Publicodes, avec le formulaire généré depuis les règles.
+- Parcours en plusieurs étapes, très travaillé, qui appelle plusieurs moteurs : questionnaire décrit à part, avec des fonctions de conversion documentées.
+- Calculs socio-fiscaux sur des foyers à plusieurs membres : OpenFisca, sur un serveur.

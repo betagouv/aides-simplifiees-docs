@@ -1,26 +1,22 @@
 # Contribuer à un modèle partagé
 
-La mutualisation des règles est avant tout un défi de gouvernance. Contribuer à des modèles partagés comme `openfisca-france` ou les paquets Publicodes permet de capitaliser sur l'intelligence collective, mais exige de s'insérer dans des processus de validation rigoureux.
+Contribuer à un modèle partagé comme `openfisca-france` ou aux paquets Publicodes permet de réutiliser le travail des autres équipes, et demande de suivre leur processus de validation.
 
 ## Le cycle de vie d'une contribution
 
-Contrairement au code applicatif classique, une modification de règles impacte potentiellement des milliers de calculs tiers. Le processus de contribution est donc conçu pour garantir la stabilité juridique et technique.
+Une modification de règles change les résultats de tous les simulateurs qui utilisent le paquet. Le processus de contribution suit donc quatre étapes :
 
-1.  **La qualification (Issue)** : Tout commence par une discussion. S'agit-il d'une correction de bug, d'une mise à jour de barème ou d'une nouvelle interprétation ? Cette phase permet d'aligner la compréhension juridique entre le contributeur et les mainteneurs avant d'écrire la moindre ligne de code.
-2.  **L'implémentation et la preuve (PR)** : Le code ne suffit pas. Une contribution doit être accompagnée de sa "preuve" : référence au texte officiel (Légifrance, BOFIP) et, surtout, cas de tests validant le comportement attendu.
-3.  **La double validation (Review)** : La revue de code s'opère à deux niveaux. Une revue technique vérifie la qualité du code et l'absence de régressions. Une revue métier, effectuée par un expert du domaine, valide la conformité de la modélisation avec l'intention du législateur.
-4.  **L'intégration (Merge & Release)** : Une fois validée, la modification est intégrée et publiée dans une nouvelle version du paquet, rendant la mise à jour disponible pour tous les simulateurs consommateurs.
+- Une issue qualifie la demande : correction d'erreur, mise à jour de barème ou nouvelle interprétation. Le contributeur et les mainteneurs s'accordent sur la lecture du texte avant d'écrire le code.
+- La pull request comprend la référence au texte officiel (Légifrance, BOFiP) et des cas types qui décrivent le comportement attendu.
+- La revue porte sur deux points : la qualité du code et les tests de non-régression, puis la lecture du texte cité et les cas types, vérifiés par une personne qui connaît le domaine.
+- La modification fusionnée est publiée dans une nouvelle version du paquet, que les simulateurs peuvent adopter.
 
-## Modèles de gouvernance
+## Dépôt unique et paquets thématiques
 
-L'écosystème présente deux modèles de gouvernance distincts :
+`openfisca-france` réunit l'essentiel des règles socio-fiscales nationales dans un dépôt unique. Ses règles de contribution sont strictes, parce qu'une modification du SMIC, par exemple, change le calcul de dizaines d'aides.
 
-**Le modèle centralisé (`openfisca-france`)** : Ce dépôt unique concentre l'essentiel des règles socio-fiscales nationales. La gouvernance y est communautaire mais stricte, nécessaire pour maintenir la cohérence d'un graphe de dépendances complexe où une modification sur le SMIC peut impacter des dizaines d'aides.
+Les modèles Publicodes sont publiés en paquets thématiques (`modele-social`, `nosgestesclimat`, `mesaidesreno`), maintenus par des équipes différentes. Chaque équipe avance à son rythme, et l'usage de plusieurs paquets ensemble demande de coordonner leurs définitions.
 
-**Le modèle fédéré (Publicodes)** : L'approche est ici plus décentralisée. Des paquets thématiques (`modele-social`, `nosgestesclimat`, `mesaidesreno`) sont maintenus par des équipes autonomes. Cette souplesse favorise l'innovation rapide sur des verticaux précis, mais demande un effort de coordination pour assurer l'interopérabilité entre les différents domaines.
+## Contribuer au dépôt principal ou maintenir une copie
 
-## Stratégie de contribution : upstream vs fork
-
-Face à un besoin spécifique ou une urgence, la tentation du "fork" (copie divergente) est grande. C'est pourtant une dette technique majeure à long terme.
-
-La stratégie recommandée est de toujours privilégier la contribution **upstream** (au projet principal) pour les corrections et les règles nationales. Le fork ne devrait être réservé qu'à des expérimentations temporaires ou à des spécificités locales irréductibles qui n'ont pas vocation à être généralisées. En cas de divergence d'interprétation juridique, le registre des interprétations permet de documenter le désaccord sans nécessairement scinder le code.
+Une copie divergente du dépôt (fork) oblige à reporter ensuite chaque évolution du dépôt principal. Les corrections et les règles nationales se contribuent au dépôt principal. Le fork ne devrait être réservé qu'à des expérimentations temporaires ou à des règles locales propres à un territoire. En cas de désaccord d'interprétation, consigner les deux lectures dans un fichier versionné avec le modèle.

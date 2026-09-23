@@ -1,11 +1,9 @@
-# Mutualiser : écosystème et contribution
+# Mutualiser
 
-L'écosystème des simulateurs publics français ne se résume pas à une collection d'outils isolés ; il constitue un réseau de connaissances et de briques techniques partagées. Plusieurs dizaines de projets, bien que répondant à des politiques publiques distinctes, affrontent les mêmes défis d'ingénierie : modéliser le droit, garantir la fiabilité des calculs et maintenir la conformité dans le temps.
+Plusieurs dizaines de simulateurs publics français, qui servent des politiques publiques différentes, rencontrent les mêmes problèmes : modéliser le droit, vérifier les calculs, suivre les évolutions réglementaires. Cette section présente ce que les équipes partagent déjà :
 
-Cette section explore les ressources communes qui permettent d'éviter la redondance et d'accélérer le développement :
-
-*   **[Panorama des projets](./01_panorama.md)** : Une cartographie des simulateurs existants, analysant leurs choix technologiques et leurs domaines d'application.
-*   **[Outils et briques réutilisables](./02_outils.md)** : L'inventaire des moteurs de règles (Publicodes, OpenFisca) et des bibliothèques métier disponibles.
-*   **[Patterns architecturaux](./03_patterns.md)** : Une analyse technique des stratégies d'intégration entre interfaces utilisateurs et moteurs de calcul.
-*   **[Contribuer à un modèle partagé](./04_contribuer.md)** : Les processus de gouvernance pour faire évoluer les règles communes.
-*   **[Ressources visuelles](./05_visuels.md)** : Les langages graphiques pour faciliter le dialogue entre experts métier et développeurs.
+- [Panorama des projets](./01_panorama.md) : une sélection de simulateurs existants, classés par moteur et par domaine.
+- [Outils réutilisables](./02_outils.md) : moteurs ouverts, modèles de règles publiés, outils de formulaire et standards.
+- [Patterns architecturaux](./03_patterns.md) : les façons de relier un formulaire à un moteur de règles.
+- [Contribuer à un modèle partagé](./04_contribuer.md) : le processus de contribution à `openfisca-france` et aux paquets Publicodes.
+- [Ressources visuelles](./05_visuels.md) : les diagrammes employés avec les experts métier et les développeurs.
