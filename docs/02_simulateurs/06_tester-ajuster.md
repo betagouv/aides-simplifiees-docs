@@ -18,24 +18,21 @@ Ces cas types doivent être décrits dans un format lisible par tous (YAML/JSON)
 
 ### Exemples de formats dans l'écosystème
 
-**Format LexImpact** (JSON) : Très riche, gère les périodes et les expressions calculées.
+**Format shared-test-cases** ([dépôt](https://github.com/ShallowRed/aides-simplifiees-shared-test-cases)) : Trace le flux complet du formulaire au résultat, avec la période et la version du moteur, qui rendent le cas rejouable. Extrait :
 ```json
 {
-  "id": "007_aah",
-  "description": "Personne handicapée avec AAH",
-  "individus": {
-    "Adulte 1": { "taux_incapacite": { "year": 0.8 } }
+  "id": "dem-log-001",
+  "name": "Étudiant boursier en mobilité Parcoursup",
+  "period": "2025-01",
+  "openfisca_version": "france-158.0.0",
+  "metadata": { "validated_by": "Responsable Réglementation" },
+  "survey_answers": { "statut-professionnel": "etudiant", "boursier": true },
+  "openfisca_request": { },
+  "openfisca_response": { },
+  "expected_simulation_results": {
+    "aide-mobili-jeune": 100,
+    "aide-personnalisee-logement": 250
   }
-}
-```
-
-**Format shared-test-cases** (aides-simplifiées) : Trace le flux complet du formulaire au résultat.
-```json
-{
-  "name": "Alternant éligible APL",
-  "metadata": { "validated_by": "expert_caf" },
-  "situation": { ... },
-  "expected": { "apl": 150 }
 }
 ```
 

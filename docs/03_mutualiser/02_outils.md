@@ -29,7 +29,7 @@ Langage de programmation littéraire développé par l'INRIA, garantissant une c
 Plutôt que de redévelopper les règles, il est possible d'importer des modèles existants maintenus par d'autres équipes.
 
 *   **`modele-social`** (Urssaf) : Le socle complet des cotisations et de la fiscalité des revenus.
-*   **`@socialgouv/modeles-social`** : Les règles de 47 conventions collectives (préavis, indemnités).
+*   **`@socialgouv/modeles-social`** : Les règles des simulateurs du code du travail numérique (préavis, indemnités).
 *   **`mesaidesreno`** : Règles d'éligibilité et calculs pour MaPrimeRénov' et les CEE.
 *   **`@incubateur-ademe/nosgestesclimat`** : Modèle complet de l'empreinte carbone individuelle.
 *   **`@betagouv/aides-velo`** : Aides nationales et locales à l'achat de vélo.

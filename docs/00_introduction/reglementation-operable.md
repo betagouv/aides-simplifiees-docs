@@ -59,7 +59,7 @@ Plusieurs langages permettent aujourd'hui d'encoder la législation :
 Le Rules as Code n'est pas une initiative isolée. Le rapport OCDE *Cracking the Code* (2020) a posé le cadre international. Depuis, un réseau européen s'est structuré :
 
 - **Pays-Bas** : le portail [regels.overheid.nl](https://regels.overheid.nl) référence les règles formalisées avec des métadonnées standardisées. Le TNO développe FLINT, un langage qui modélise les concepts juridiques (droits, devoirs, pouvoirs).
-- **RaC Europe** : série de conférences annuelles (Amsterdam 2024, Paris 2025, La Haye 2026) réunissant praticiens et chercheurs.
+- **RaC Europe** : série de conférences annuelles (Paris 2025, La Haye 2026) réunissant praticiens et chercheurs.
 - **GovTech4All** : programme européen explorant l'interopérabilité transfrontalière des catalogues de règles.
 
 ## Pour aller plus loin

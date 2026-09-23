@@ -26,20 +26,20 @@ Chaque variable doit être nommée de manière explicite (en français, pour col
 
 Une fois les briques identifiées, il faut les assembler. Les conditions d'éligibilité se traduisent souvent par des arbres de décision booléens.
 
-*Exemple de traduction logique (APL étudiant) :*
-> "Le demandeur doit occuper le logement à titre de résidence principale et ne pas être rattaché au foyer fiscal de ses parents."
+*Exemple de traduction logique (APL étudiant), d'après [service-public.fr](https://www.service-public.fr/particuliers/vosdroits/F12006) :*
+> « Vous ne pouvez pas bénéficier de l'APL si vous êtes rattaché au foyer fiscal de vos parents et que ces derniers payent l'impôt sur la fortune immobilière (IFI). »
 
 Devient :
-`eligible = residence_principale ET (NON rattachement_foyer_parents)`
+`exclusion_ifi = rattachement_foyer_parents ET parents_redevables_ifi`
 
 À ce stade, l'usage de diagrammes (nous conseillons Mermaid) est recommandé pour valider la logique avec les experts métier sans s'enfermer dans la syntaxe du code.
 
 ```mermaid
 flowchart TD
-    A["Résidence principale ?"] -->|Oui| B["Rattaché au foyer des parents ?"]
-    B -->|Non| OK["Éligible APL"]
-    B -->|Oui| X["Rejet"]
-    A -->|Non| X
+    A["Rattaché au foyer fiscal des parents ?"] -->|Non| OK["Condition remplie"]
+    A -->|Oui| B["Parents redevables de l'IFI ?"]
+    B -->|Non| OK
+    B -->|Oui| X["Exclusion de l'APL"]
 ```
 
 ## 4. Du modèle au parcours utilisateur

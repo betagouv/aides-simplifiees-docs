@@ -1,6 +1,6 @@
 # Mutualiser : écosystème et contribution
 
-L'écosystème des simulateurs publics français ne se résume pas à une collection d'outils isolés ; il constitue un réseau de connaissances et de briques techniques partagées. Une vingtaine de projets, bien que répondant à des politiques publiques distinctes, affrontent les mêmes défis d'ingénierie : modéliser le droit, garantir la fiabilité des calculs et maintenir la conformité dans le temps.
+L'écosystème des simulateurs publics français ne se résume pas à une collection d'outils isolés ; il constitue un réseau de connaissances et de briques techniques partagées. Plusieurs dizaines de projets, bien que répondant à des politiques publiques distinctes, affrontent les mêmes défis d'ingénierie : modéliser le droit, garantir la fiabilité des calculs et maintenir la conformité dans le temps.
 
 Cette section explore les ressources communes qui permettent d'éviter la redondance et d'accélérer le développement :
 

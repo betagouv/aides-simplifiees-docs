@@ -6,11 +6,11 @@ Cette page retrace l'évolution des simulateurs de prestations en France, des pr
 
 Les premiers simulateurs fiscaux apparaissent sur disquettes et CD-ROM, diffusés par des éditeurs privés ou la presse spécialisée. Ce sont des tableurs permettant d'estimer son impôt sur le revenu à partir de barèmes figés. Ils s'adressent à un public averti (cadres, indépendants, lecteurs de magazines économiques) et deviennent vite obsolètes faute de mise à jour régulière.
 
-À cette époque, l'administration fiscale reste à distance. Les interactions avec les contribuables passent par le papier ou le guichet. Le premier simulateur officiel sur impots.gouv.fr n'arrivera qu'en 2006.
+À cette époque, l'administration fiscale reste à distance. Les interactions avec les contribuables passent par le papier ou le guichet.
 
 ## Années 2000 : l'institutionnalisation
 
-Les administrations prennent le relais des éditeurs privés. En 2007, la CAF met en ligne son simulateur d'APL, permettant aux allocataires d'estimer leur droit avant de déposer un dossier. L'Assurance Retraite suit au début des années 2010. Pôle Emploi propose des estimateurs d'allocation chômage.
+Les administrations prennent le relais des éditeurs privés. La CAF met en ligne son simulateur d'APL, permettant aux allocataires d'estimer leur droit avant de déposer un dossier. L'Assurance Retraite suit au début des années 2010. Pôle Emploi propose des estimateurs d'allocation chômage.
 
 Le changement est double : les simulateurs passent en ligne, et ils deviennent officiels. La mise à jour suit désormais le rythme des évolutions réglementaires. L'audience s'élargit, n'importe qui peut accéder à ces outils depuis un navigateur.
 
@@ -30,9 +30,9 @@ En parallèle des grands chantiers de dématérialisation, l'incubateur [Beta.go
 
 Ce modèle produit plusieurs simulateurs qui changent la donne :
 
-**[Mes Aides](https://beta.gouv.fr/startups/mes-aides.html) (2014)** est le produit emblématique de cette période. Premier simulateur multi-prestations en France, il permet de vérifier ses droits à plus de 25 aides (RSA, APL, prime d'activité, CMU-C, allocations familiales) en une seule simulation d'environ 10 minutes. Le service repose sur [OpenFisca](https://openfisca.org/fr/), un moteur de calcul open source capable de modéliser le système socio-fiscal français. En 2019, Mes Aides traite jusqu'à 30 000 simulations par jour.
+**[Mes Aides](https://beta.gouv.fr/startups/mes-aides.html) (2014)** est le produit emblématique de cette période. Premier simulateur multi-prestations en France, il permet de vérifier ses droits à plus de 25 aides (RSA, APL, prime d'activité, CMU-C, allocations familiales) en une seule simulation d'environ 10 minutes. Le service repose sur [OpenFisca](https://openfisca.org/fr/), un moteur de calcul open source capable de modéliser le système socio-fiscal français. En 2020, mes-aides.gouv.fr est redirigé vers mesdroitssociaux.gouv.fr.
 
-**[1jeune1solution.gouv.fr](https://www.1jeune1solution.gouv.fr/) (2020)** agrège plus de 1 000 aides pour les moins de 30 ans (emploi, formation, logement, santé, mobilité). Le service s'appuie sur [Aides-jeunes](https://www.1jeune1solution.gouv.fr/mes-aides), un simulateur dédié qui reprend l'approche de Mes Aides pour ce public spécifique.
+**[1jeune1solution.gouv.fr](https://www.1jeune1solution.gouv.fr/) (2020)** agrège des aides pour les moins de 30 ans (emploi, formation, logement, santé, mobilité). Le service s'appuie sur [Aides-jeunes](https://www.1jeune1solution.gouv.fr/mes-aides), un simulateur dédié qui reprend l'approche de Mes Aides pour ce public spécifique.
 
 **[Mon-entreprise.urssaf.fr](https://mon-entreprise.urssaf.fr/)** applique la même logique aux indépendants et créateurs d'entreprise : estimation des cotisations, comparaison des statuts juridiques, simulation de revenus. Le service utilise [Publicodes](https://publi.codes/), un langage de règles développé en interne qui privilégie la lisibilité.
 
@@ -62,9 +62,9 @@ Côté moteurs de règles, deux approches coexistent :
 
 D'autres pays ont pris de l'avance sur l'unification des services.
 
-La **Finlande** dispose depuis 2010 d'un simulateur multi-prestations (portail [Benefits de la Kela](https://www.kela.fi/calculators)). Le citoyen finlandais peut estimer en une seule démarche ses droits aux allocations logement, familiales, maladie, chômage et retraite.
+La **Finlande** propose un simulateur multi-prestations (portail [Benefits de la Kela](https://www.kela.fi/calculators)). Le citoyen finlandais peut estimer en une seule démarche ses droits aux allocations logement, familiales, maladie, chômage et retraite.
 
-L'**Estonie** a centralisé 99% de ses services publics sur [X-Road](https://e-estonia.com/solutions/interoperability-services/x-road/) dès 2001. Le principe du "Once Only" y est appliqué : les usagers ne transmettent leurs informations qu'une seule fois, l'administration se charge de les partager entre services. La déclaration d'impôts pré-remplie ne prend que quelques minutes.
+L'**Estonie** fait échanger les données de ses administrations par [X-Road](https://e-estonia.com/solutions/interoperability-services/x-road/), en service depuis 2001. Le principe du "Once Only" y est appliqué : les usagers ne transmettent leurs informations qu'une seule fois, l'administration se charge de les partager entre services.
 
 Le **Danemark** ([borger.dk](https://www.borger.dk/)) et les **Pays-Bas** ([mijnoverheid.nl](https://mijn.overheid.nl/)) ont également développé des portails unifiés, avec des niveaux variables d'intégration des simulateurs.
 
@@ -84,7 +84,6 @@ En France, le mouvement s'accélère. En mars 2025, la DINUM a organisé [**Rule
 
 Conférence européenne dédiée à la traduction de la réglementation en code exécutable.
 
-- **2024** : Amsterdam, organisée par l'Asser Institute (Pays-Bas)
 - **2025** : Paris, co-organisée par la DINUM et beta.gouv. Première édition européenne officielle (100+ participants, 15 pays). La France y a présenté OpenFisca et Publicodes, et lancé un projet pilote européen sur les assistants de réglementation personnalisés avec la Grèce et les Pays-Bas.
 - **2026** : La Haye (10-11 mars)
 
@@ -100,8 +99,7 @@ Communauté : gouvernements, académiques, communautés open source.
 - **DINUM (2021)** : *Observatoire de la qualité des démarches en ligne*, suivi de la dématérialisation.  
   [Consulter l'observatoire](https://observatoire.numerique.gouv.fr)
 
-- **Défenseur des droits (2019)** : *Dématérialisation et inégalités d'accès aux services publics*, alertes sur l'exclusion numérique.  
-  [Lire le rapport](https://www.defenseurdesdroits.fr/fr/rapports/2019/01/dematerialisation-des-services-publics-et-inegalites)
+- **Défenseur des droits (2019)** : *Dématérialisation et inégalités d'accès aux services publics*, alertes sur l'exclusion numérique.
 
 ### International
 
@@ -112,7 +110,7 @@ Communauté : gouvernements, académiques, communautés open source.
   [Voir le showcase](https://digital.govt.nz/showcases/better-rules/)
 
 - **World Bank (2021)** : *GovTech Maturity Index*, comparatif international des services publics numériques.  
-  [Consulter l'index](https://www.worldbank.org/en/topic/governance/publication/govtech-maturity-index)
+  [Consulter l'index](https://www.worldbank.org/en/programs/govtech/gtmi)
 
 - **TNO Normative Systems (Pays-Bas)** : protocole Calculemus et langage FLINT pour la formalisation des règles juridiques.  
   [Site TNO](https://www.tno.nl/en/digital/data-sharing/rules-code/) · [Portail regels.overheid.nl](https://regels.overheid.nl/en) · [Code source GitLab](https://gitlab.com/normativesystems)

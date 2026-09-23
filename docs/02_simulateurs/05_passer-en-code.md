@@ -32,15 +32,17 @@ Le choix du moteur détermine la philosophie de l'implémentation.
 
 ## Exemple comparatif : Mobili-jeunes
 
-Prenons une règle simplifiée : *"Aide de 100€ max pour les apprentis de moins de 30 ans, plafonnée à 10€/m² de loyer"*.
+Prenons une version simplifiée de l'[aide Mobili-Jeune](https://www.actionlogement.fr/aide-mobili-jeune) d'Action Logement : *aide de 10 € à 100 € par mois pour les alternants de moins de 30 ans dont le salaire ne dépasse pas 120 % du SMIC, calculée sur le loyer restant après l'aide au logement*.
 
 ### Modèle conceptuel
 
 ```mermaid
 graph TD
-    A["Âge < 30 ans ?"] -->|"Oui"| B["Statut = Apprenti ?"]
-    B -->|"Oui"| C["Montant = min(100€, surface * 10€/m²)"]
-    B -->|"Non"| D["Montant = 0"]
+    A["Âge < 30 ans ?"] -->|"Oui"| B["Alternant ?"]
+    B -->|"Oui"| S["Salaire ≤ 120 % du SMIC ?"]
+    S -->|"Oui"| C["Montant = min(100 €, loyer - aide au logement)"]
+    S -->|"Non"| D["Montant = 0"]
+    B -->|"Non"| D
     A -->|"Non"| D
 ```
 
@@ -49,16 +51,30 @@ graph TD
 La logique est encapsulée dans des classes typées, avec une gestion explicite des entités et périodes.
 
 ```python
-class mobili_jeunes_eligibilite(Variable):
+class mobili_jeune_eligibilite(Variable):
     value_type = bool
     entity = Individu
-    label = "Eligibilité Mobili Jeunes"
+    label = "Éligibilité à l'aide Mobili-Jeune"
     definition_period = MONTH
-    
-    def formula(individu, period):
+
+    def formula(individu, period, parameters):
         age = individu('age', period)
-        apprenti = individu('apprenti', period)
-        return (age < 30) * apprenti
+        alternant = individu('alternant', period)
+        salaire = individu('salaire_de_base', period)
+        smic = parameters(period).marche_travail.salaire_minimum.smic.smic_b_mensuel
+        return (age < 30) * alternant * (salaire <= 1.2 * smic)
+
+
+class mobili_jeune(Variable):
+    value_type = float
+    entity = Individu
+    label = "Montant de l'aide Mobili-Jeune"
+    definition_period = MONTH
+
+    def formula(individu, period):
+        eligible = individu('mobili_jeune_eligibilite', period)
+        reste = individu.menage('loyer', period) - individu.famille('aide_logement', period)
+        return eligible * min_(100, max_(reste, 0))
 ```
 
 ### Implémentation Publicodes (YAML)
@@ -66,18 +82,18 @@ class mobili_jeunes_eligibilite(Variable):
 La logique est décrite comme une phrase structurée, lisible presque comme du français.
 
 ```yaml
-mobili-jeunes . éligibilité:
-  formule:
-    toutes ces conditions:
-      - âge < 30
-      - apprenti = oui
+mobili-jeune . éligibilité:
+  toutes ces conditions:
+    - âge < 30
+    - alternant = oui
+    - salaire brut <= 120% * SMIC
 
-mobili-jeunes . montant:
-  formule:
+mobili-jeune . montant:
+  applicable si: éligibilité
+  valeur:
     le minimum de:
       - 100 €/mois
-      - surface logement * 10 €/m²
-    applicable si: mobili-jeunes . éligibilité
+      - loyer - aide au logement
 ```
 
 ## Connecter le modèle au formulaire

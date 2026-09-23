@@ -4,9 +4,9 @@ Les équipes qui construisent des simulateurs d'aides publiques font face aux m�
 
 ## Un écosystème en structuration
 
-En France, une vingtaine d'équipes, principalement au sein de [beta.gouv.fr](https://beta.gouv.fr) et chez ses partenaires, développent des simulateurs d'aides publiques ouverts. Ces projets couvrent des domaines variés (logement, emploi, famille, mobilité, rénovation énergétique) et utilisent des approches techniques diverses, mais les problématiques se recoupent.
+En France, des équipes, principalement au sein de [beta.gouv.fr](https://beta.gouv.fr) et chez ses partenaires, développent des simulateurs d'aides publiques ouverts. Ces projets couvrent des domaines variés (logement, emploi, famille, mobilité, rénovation énergétique) et utilisent des approches techniques diverses, mais les problématiques se recoupent.
 
-Cet écosystème français s'inscrit dans un mouvement européen plus large. La conférence [RaC Europe](https://rac-europe.eu) (Amsterdam 2024, Paris 2025, La Haye 2026) réunit chaque année praticiens et chercheurs autour de la modélisation des règles juridiques. Voir [La réglementation opérable](/00_introduction/reglementation-operable#un-mouvement-européen) pour le contexte international.
+Cet écosystème français s'inscrit dans un mouvement européen plus large. La conférence Rules as Code Europe (Paris 2025, [La Haye 2026](https://rules-as-code.yellenge.nl/)) réunit chaque année praticiens et chercheurs autour de la modélisation des règles juridiques. Voir [La réglementation opérable](/00_introduction/reglementation-operable#un-mouvement-européen) pour le contexte international.
 
 ## Historique : rencontre du 8 décembre 2025
 

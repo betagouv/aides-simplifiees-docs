@@ -12,72 +12,39 @@ Contrairement à un flowchart technique classique, cet arbre doit explicitement 
 
 ```mermaid
 flowchart TD
-    subgraph "Art. L.351-1 CCH"
-        A1{Résidence principale ?}
+    subgraph "CCH, art. R.822-23 à R.822-25"
+        A1{Logement conforme ?}
     end
     
-    subgraph "Art. R.351-3 CCH"
-        A2{Non rattaché au foyer<br/>fiscal des parents ?}
-    end
-    
-    subgraph "Art. D.351-5 CCH"
-        A3{Ressources < plafond ?}
+    subgraph "CCH, art. R.822-3 à R.822-17"
+        A2{Ressources sous le plafond ?}
     end
     
     A1 -->|Oui| A2
-    A1 -->|Non| X1[Rejet Art. L.351-1]
-    A2 -->|Oui| A3
-    A2 -->|Non| X2[Rejet Art. R.351-3]
-    A3 -->|Oui| OK[Éligible APL]
-    A3 -->|Non| X3[Rejet Art. D.351-5]
+    A1 -->|Non| X1[Rejet, conditions liées au logement]
+    A2 -->|Oui| OK[Conditions remplies]
+    A2 -->|Non| X2[Rejet, conditions de ressources]
 ```
 
 ## Visualiser les temporalités
 
-Les règles socio-fiscales impliquent souvent des décalages temporels complexes (revenus N-2, situation au 1er janvier). Le diagramme de Gantt permet de clarifier ces périodes de référence pour l'équipe technique et les usagers.
+Les règles socio-fiscales impliquent souvent des décalages temporels complexes (revenus N-2, ressources des douze derniers mois, situation au 1er janvier). Le diagramme de Gantt permet de clarifier ces périodes de référence pour l'équipe technique et les usagers. Exemple : les aides au logement se calculent sur les ressources des douze derniers mois, actualisées tous les trois mois ([service-public.fr](https://www.service-public.fr/particuliers/vosdroits/F12006)).
 
 ```mermaid
 gantt
-    title Périodes de référence pour le calcul APL 2025
+    title Aides au logement, demande en avril 2026
     dateFormat YYYY-MM
     axisFormat %Y-%m
     
-    section Données
-    Revenus N-2 (RFR 2023)             :done, 2023-01, 2023-12
-    Situation familiale (Mois M)       :active, 2025-04, 2025-05
+    section Ressources
+    Douze derniers mois                :done, 2025-04, 2026-03
     
     section Droit
-    Période de versement               :crit, 2025-04, 2025-12
+    Premier trimestre                  :active, 2026-04, 2026-06
+    Trimestre suivant, ressources actualisées :crit, 2026-07, 2026-09
 ```
 
 *Usage : Spécification des règles de gestion temporelle (OpenFisca) et pédagogie usager.*
-
-### La décomposition FLINT (Actes / Faits / Devoirs)
-
-Pour une modélisation rigoureuse, notamment dans les contextes de contestabilité forte, le langage [FLINT](https://gitlab.com/normativesystems) (TNO) propose de décomposer la norme en "frames" sémantiques.
-
-```mermaid
-flowchart TB
-    subgraph "FACTS (Faits)"
-        F1["est_résident_principal<br/><small>Art. L.351-1 CCH</small>"]
-        F2["revenus_inférieurs_plafond<br/><small>Art. D.351-5 CCH</small>"]
-    end
-    
-    subgraph "ACTS (Actes)"
-        A1["déposer_demande_APL"]
-        A1_pre["Préconditions :<br/>F1 ∧ F2"]
-    end
-    
-    subgraph "DUTIES (Devoirs)"
-        D1["CAF doit statuer<br/>sous 2 mois"]
-        D1_trigger["Déclencheur :<br/>dossier_créé"]
-    end
-    
-    F1 & F2 --> A1_pre
-    A1_pre --> A1
-    A1 --> D1_trigger
-    D1_trigger --> D1
-```
 
 ### Le graphe de dépendances de variables
 
