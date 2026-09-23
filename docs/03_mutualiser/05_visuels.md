@@ -78,7 +78,7 @@ flowchart TD
 
 ### Le parcours déclaratif conditionnel
 
-Dans une architecture où le formulaire est défini par un schéma autonome (approche *aides-simplifiées*), le diagramme de flux permet de visualiser la logique d'affichage conditionnel (`visibleWhen`).
+Dans une architecture où le formulaire est défini par un schéma autonome, le diagramme de flux permet de visualiser la logique d'affichage conditionnel (`visibleWhen`).
 
 ```mermaid
 flowchart TD

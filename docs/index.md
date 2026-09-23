@@ -1,6 +1,6 @@
 # Guide de la réglementation opérable
 
-Cette documentation accompagne les équipes qui construisent des services numériques autour des aides publiques et de la réglementation. Née de l'expérience du produit [Aides Simplifiées](/00_introduction/aides-simplifiees), elle est enrichie par l'écosystème des simulateurs publics ouverts et la [communauté](/00_introduction/communaute) qui les porte.
+Cette documentation accompagne les équipes qui construisent des services numériques autour des aides publiques et de la réglementation. Elle est enrichie par l'écosystème des simulateurs publics ouverts et la [communauté](/00_introduction/communaute) qui les porte.
 
 Elle capitalise les méthodologies, recense les outils existants et ouvre des perspectives sur les usages à venir de la réglementation opérable — le champ plus large dans lequel s'inscrit le *Rules as Code*.
 

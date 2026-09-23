@@ -8,7 +8,7 @@ La première décision concerne la définition du questionnaire : doit-il être 
 
 **L'approche "Projection des règles"** (ex: *mon-entreprise*) consiste à générer l'interface directement depuis les métadonnées du modèle. Si une règle nécessite la variable `revenu_fiscal`, le champ apparaît. Cette méthode garantit une cohérence absolue : il est impossible de demander une donnée inutile ou d'oublier un paramètre. En contrepartie, elle contraint le design du parcours à la structure logique du calcul, limitant les possibilités d'optimisation UX pure.
 
-**L'approche "Artefact autonome"** (ex: *aides-simplifiées*) sépare la définition du formulaire (souvent un JSON ou YAML) de celle des règles. Cela offre une liberté totale pour concevoir des parcours pédagogiques, reformuler les questions ou changer l'ordre sans toucher au moteur. Le coût est la maintenance d'une couche de mapping et le risque de désynchronisation entre ce qui est demandé et ce qui est calculé.
+**L'approche "Artefact autonome"** sépare la définition du formulaire (souvent un JSON ou YAML) de celle des règles. Cela offre une liberté totale pour concevoir des parcours pédagogiques, reformuler les questions ou changer l'ordre sans toucher au moteur. Le coût est la maintenance d'une couche de mapping et le risque de désynchronisation entre ce qui est demandé et ce qui est calculé.
 
 **L'approche "Filtre d'ordonnancement"** (ex: *mes-aides-reno*) tente un compromis : le moteur définit les questions possibles, mais un fichier de configuration externe pilote leur ordre et leur affichage, permettant d'ajuster l'expérience sans rompre le lien avec le modèle.
 

@@ -38,6 +38,10 @@ Ce modèle produit plusieurs simulateurs qui changent la donne :
 
 ## Années 2020 : diversification et nouveaux acteurs
 
+### Aides simplifiées
+
+**[Aides simplifiées](https://beta.gouv.fr/startups/droit-data-gouv-fr-simulateurs-de-droits.html) (2024)**, produit beta.gouv.fr, développe jusqu'en 2026 des simulateurs organisés par moment de vie, dont le déménagement et les aides fiscales à l'innovation des entreprises. Cette documentation vient de ce projet.
+
 ### Les collectivités territoriales
 
 Les régions, départements et métropoles développent leurs propres simulateurs pour les aides locales. Ces dispositifs (bourses régionales, aides au permis de conduire, chèques énergie locaux) restent souvent méconnus. Quelques collectivités pionnières intègrent leurs aides aux simulateurs nationaux ou développent des portails unifiés.

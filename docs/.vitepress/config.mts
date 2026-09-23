@@ -39,7 +39,6 @@ export default defineConfig({
       {
         text: 'Introduction',
         items: [
-          { text: 'Aides simplifiées', link: '/00_introduction/aides-simplifiees' },
           { text: 'Réglementation opérable', link: '/00_introduction/reglementation-operable' },
           { text: 'Communauté', link: '/00_introduction/communaute' }
         ]

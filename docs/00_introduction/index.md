@@ -4,9 +4,6 @@ Cette section présente le contexte, la genèse et les objectifs de cette docume
 
 ## Contenu
 
-### [Aides simplifiées](./aides-simplifiees.md)
-Le produit beta.gouv à l'origine de cette documentation : contexte, approche et héritage méthodologique.
-
 ### [Réglementation opérable](./reglementation-operable.md)
 Rules as Code, moteurs de calcul, et l'écologie complète qui rend la loi exécutable, traçable et gouvernable.
 

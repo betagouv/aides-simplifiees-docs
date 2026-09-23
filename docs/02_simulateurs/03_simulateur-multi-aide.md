@@ -8,7 +8,7 @@ Avant même de modéliser, il faut définir l'ambition du simulateur. L'écosyst
 
 *   **Le simulateur mono-aide** (ex: *APL*) : Le périmètre est clair, l'expert métier est unique. La validation est "simple".
 *   **Le bouquet mono-porteur** (ex: *mes-aides-reno*) : Regroupe 5 à 20 aides d'un même organisme (ANAH). La cohérence des données est naturelle.
-*   **Le thématique multi-porteurs** (ex: *aides-simplifiées*) : Agrège des aides de sources variées (CAF, Action Logement, Départements) autour d'un moment de vie. Le défi est d'obtenir une validation métier coordonnée entre plusieurs experts.
+*   **Le thématique multi-porteurs** : Agrège des aides de sources variées (CAF, Action Logement, Départements) autour d'un moment de vie. Le défi est d'obtenir une validation métier coordonnée entre plusieurs experts.
 *   **L'exhaustif** (ex: *1jeune1solution*) : Rassemble les aides de nombreux organismes pour un même public. Ici, la validation "aide par aide" devient impossible ; il faut changer de méthode et passer à une logique de contribution distribuée.
 
 ## 1. Harmoniser la sémantique (variables)
