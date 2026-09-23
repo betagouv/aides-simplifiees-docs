@@ -1,67 +1,60 @@
 # La réglementation opérable
 
-La **réglementation opérable** désigne la transformation de la législation en artefacts numériques lisibles par les humains, exécutables par les machines, et gouvernables collectivement.
+La réglementation opérable désigne la transformation de la législation en artefacts numériques lisibles par les humains, exécutables par les machines et maintenus collectivement.
 
-Le terme international **Rules as Code** (RaC) désigne un sous-ensemble de ce champ : l'encodage des règles juridiques dans un langage formel. C'est une brique essentielle, mais ce n'est pas le tout. Un simulateur fonctionnel repose sur bien plus que son moteur de calcul : il faut des jeux de tests validés par des experts métier, une couche de traduction entre le formulaire usager et les variables techniques, une documentation qui survive aux rotations d'équipe, et un lien traçable vers le texte de loi d'origine.
+Le terme international *Rules as Code* désigne l'écriture des règles juridiques dans un langage formel. Un simulateur demande aussi des cas types validés par des experts métier, une conversion documentée des réponses de l'usager en variables du moteur, une documentation à jour et un lien vers le texte de loi.
 
-## Le problème
+## Règles dispersées et non-recours
 
-Les dispositifs d'aide se multiplient, se croisent, parfois se contredisent. Les mêmes notions (revenu fiscal de référence, composition du foyer, résidence) sont redéfinies des dizaines de fois, dans des textes épars, sans mémoire commune. Résultat : des règles trop complexes pour les usagers, trop mouvantes pour les agents, trop coûteuses à maintenir pour les équipes techniques.
+Les dispositifs d'aide se multiplient, se croisent, parfois se contredisent. Les mêmes notions (revenu fiscal de référence, composition du foyer, résidence) sont définies différemment d'un texte à l'autre. Les règles sont difficiles à comprendre pour les usagers, à suivre pour les agents et à maintenir pour les équipes techniques.
 
-Une part significative des personnes éligibles à une aide publique ne la perçoivent pas, non par choix, mais faute d'information. Méconnaissance des critères, vocabulaire opaque, multiplicité des guichets, peur de l'erreur : les obstacles sont nombreux, et le non-recours massif.
+Une part des personnes éligibles à une aide ne la demandent pas. Parmi les causes étudiées figurent la méconnaissance des critères, le vocabulaire administratif, la multiplicité des guichets et la peur de l'erreur.
 
-## Ce que permet la modélisation
+## Apports d'un modèle de règles
 
-**Rendre les règles lisibles.** Un modèle explicite peut être lu par un juriste, vérifié par un développeur, et expliqué à un usager. La règle sort de la boîte noire des SI historiques.
+- Un modèle explicite peut être relu par un juriste, vérifié par un développeur et expliqué à un usager.
+- Les équipes partagent les définitions des notions communes, comme le revenu fiscal de référence ou l'âge de l'enfant, et un nouveau simulateur réutilise celles qui existent.
+- Quand chaque variable cite l'article qu'elle applique, on peut remonter d'un montant affiché aux articles utilisés.
+- Une modification de décret, reportée une fois dans un modèle partagé, profite à tous les simulateurs qui utilisent ce modèle.
 
-**Mutualiser les briques.** Plutôt que chaque équipe redéfinisse "revenu fiscal" ou "âge de l'enfant", on construit un socle partagé de concepts réutilisables. Les nouveaux simulateurs héritent du travail passé.
+## Tests, documentation et références aux textes
 
-**Tracer les décisions.** Quand un citoyen conteste un résultat, on peut remonter du montant affiché jusqu'à l'article de loi. Chaque calcul devient auditable, chaque interprétation documentée.
+Un simulateur au code ouvert se comprend avec la documentation de la conversion des réponses de l'usager en variables du moteur. La réglementation opérable comprend donc plusieurs composants :
 
-**Réduire le coût de maintenance.** Une modification de décret se propage à tous les usages si le modèle est partagé. On transforme un coût récurrent en investissement collectif.
+- un moteur de règles, qui exécute les règles écrites dans un langage formel ;
+- des cas types validés par les experts métier, lisibles par eux et exécutés comme tests ;
+- une documentation (guides, schémas, registres de décisions) tenue à jour avec le code ;
+- des identifiants stables des textes : ELI pour un texte publié au Journal officiel, LEGIARTI pour un article de code dans une version donnée.
 
-## Au-delà de l'encodage
+## Arbitrages de modélisation
 
-Encoder la loi est nécessaire, mais chaque couche du système introduit ses propres zones d'ombre. Un simulateur "transparent" (code ouvert, règles lisibles) peut rester opaque si personne ne documente la couche de traduction entre les questions posées à l'usager et les variables du moteur de calcul.
+- Une règle simplifiée est plus facile à comprendre, et peut omettre des cas limites.
+- Un modèle générique se partage plus facilement, et s'adapte moins bien aux règles locales.
+- Un nouveau service construit autour d'une règle doit rester conforme au texte en vigueur.
 
-C'est pourquoi la réglementation opérable, au delà du code, implique une écologie de composants interdépendants, parmi lesquels :
-
-- **Moteurs de calcul** : les langages qui encodent la loi (Publicodes, OpenFisca, Catala)
-- **Jeux de tests partagés** : des cas types validés par les experts métier, qui servent à la fois de validation technique et de spécification lisible
-- **Documentation vivante** : des artefacts (guides, schémas, registres de décisions) qui maintiennent le lien entre le code et son contexte
-- **Balisage des textes sources** : des standards (Akoma Ntoso, ELI) qui permettent la traçabilité automatisée entre le code et l'article de loi
-
-## Tensions inhérentes
-
-Formaliser le droit impose des arbitrages :
-* **Lisibilité contre exhaustivité** : une règle simplifiée est plus compréhensible, mais peut omettre des cas limites.
-* **Réutilisabilité contre spécificité** : un modèle générique facilite la mutualisation, mais peut mal s'adapter aux particularismes locaux.
-* **Innovation contre conformité** : expérimenter de nouveaux services autour de la réglementation, objet rigide par excellence, est particulièrement délicat.
-
-Chaque choix de modélisation : regrouper deux situations en un seul cas, arrondir un seuil, simplifier une condition : est un arbitrage d'interprétation qui mérite d'être documenté et contestable.
+Chaque choix de modélisation (regrouper deux situations en un seul cas, arrondir un seuil, simplifier une condition) est une interprétation, à documenter pour qu'elle puisse être discutée.
 
 ## Questions de gouvernance
 
-Formaliser le droit, c'est aussi le rendre manipulable. Cela soulève des questions concrètes. Qui valide la version "de référence" d'une règle ? Qui maintient les modèles dans le temps ? Comment signaler les zones d'incertitude ou d'interprétation ? Comment garantir qu'un calcul n'introduise pas de biais ?
+Formaliser le droit le rend manipulable. Qui valide la version de référence d'une règle ? Qui maintient les modèles dans le temps ? Comment signaler les zones d'incertitude ou d'interprétation ? Comment détecter un biais dans un calcul ? Ces questions demandent une gouvernance qui associe juristes, développeurs, métiers et usagers.
 
-Ces questions n'ont pas de réponse unique. Elles appellent une gouvernance collective, impliquant juristes, développeurs, métiers et usagers.
+## Moteurs ouverts
 
-## Les moteurs de règles
+Les administrations calculent les droits avec plusieurs sortes de moteurs de règles : les [liquidateurs](/99_ressources/glossaire#liquidateur) de leurs systèmes d'information, des plateformes commerciales, et des moteurs ouverts, publiés en open source. Cette documentation traite des moteurs ouverts employés en France :
 
-Plusieurs langages permettent aujourd'hui d'encoder la législation :
+- [Publicodes](https://publi.codes) : langage de règles en YAML, aux noms de règles en français, exécuté par le moteur JavaScript `publicodes`, qui génère une documentation interactive des calculs.
+- [OpenFisca](https://openfisca.org) : moteur de microsimulation en Python, dont les règles s'écrivent en Python ; il modélise le système socio-fiscal avec plusieurs entités (individu, famille, foyer fiscal, ménage) et des périodes.
+- [Catala](https://catala-lang.org) : langage de programmation littéraire développé par Inria, où chaque bloc de code suit l'article de loi qu'il applique ; il se compile vers OCaml, Python ou JavaScript.
 
-- **[Publicodes](https://publi.codes)** : langage déclaratif français, lisible comme du pseudo-code, conçu pour la co-construction entre développeurs et experts métier.
-- **[OpenFisca](https://openfisca.org)** : moteur de microsimulation en Python, orienté système socio-fiscal complet.
-- **[Catala](https://catala-lang.org)** : langage de programmation littéraire (INRIA), où code et loi sont entremêlés dans le même fichier, avec preuve formelle de couverture.
+## Initiatives européennes
 
-## Un mouvement européen
+Le rapport de l'OCDE *Cracking the Code* (2020) a posé le cadre international. Depuis :
 
-Le Rules as Code n'est pas une initiative isolée. Le rapport OCDE *Cracking the Code* (2020) a posé le cadre international. Depuis, un réseau européen s'est structuré :
+- aux Pays-Bas, le portail [regels.overheid.nl](https://regels.overheid.nl) référence des règles formalisées avec des métadonnées standardisées, et le TNO développe FLINT, un langage qui décrit une norme en actes, faits et devoirs ;
+- la conférence annuelle Rules as Code Europe réunit praticiens et chercheurs (Paris 2025, La Haye 2026) ;
+- GovTech4All, programme de la Commission européenne, consacre son pilote 8 au *Rules as Code*, avec la France et les Pays-Bas ;
+- en France, data.gouv.fr construit [regles.data.gouv.fr](https://github.com/datagouv/regles.data.gouv.fr), un registre des règles de calcul des administrations.
 
-- **Pays-Bas** : le portail [regels.overheid.nl](https://regels.overheid.nl) référence les règles formalisées avec des métadonnées standardisées. Le TNO développe FLINT, un langage qui modélise les concepts juridiques (droits, devoirs, pouvoirs).
-- **RaC Europe** : série de conférences annuelles (Paris 2025, La Haye 2026) réunissant praticiens et chercheurs.
-- **GovTech4All** : programme européen explorant l'interopérabilité transfrontalière des catalogues de règles.
+## Pages suivantes
 
-## Pour aller plus loin
-
-- [Guide des simulateurs](/02_simulateurs/) : Passer à la pratique
+- [Concevoir un simulateur](/02_simulateurs/)

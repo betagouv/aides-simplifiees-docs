@@ -1,16 +1,6 @@
 # Introduction
 
-Cette section présente le contexte, la genèse et les objectifs de cette documentation.
+- [Réglementation opérable](./reglementation-operable.md) : ce qui rend une règle de droit exécutable et vérifiable, les moteurs ouverts et les initiatives européennes.
+- [Communauté](./communaute.md) : les équipes qui développent des simulateurs d'aides publiques, et la contribution à cette documentation.
 
-## Contenu
-
-### [Réglementation opérable](./reglementation-operable.md)
-Rules as Code, moteurs de calcul, et l'écologie complète qui rend la loi exécutable, traçable et gouvernable.
-
-### [Communauté](./communaute.md)
-L'écosystème des équipes qui construisent des simulateurs d'aides publiques.
-
-## Prochaines étapes
-
-- [Concevoir un simulateur](/02_simulateurs/) : Le guide pratique
-- [Mutualiser](/03_mutualiser/) : L'écosystème et la contribution
+Pages suivantes : [Concevoir un simulateur](/02_simulateurs/) et [Mutualiser](/03_mutualiser/).
